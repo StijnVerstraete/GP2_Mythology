@@ -26,4 +26,20 @@ public class WheelPlatform : MonoBehaviour
         }
         
     }
+    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == 9)
+        {
+            collision.transform.SetParent(this.transform);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == 9)
+        {
+            collision.transform.SetParent(null);
+        }
+    }
 }

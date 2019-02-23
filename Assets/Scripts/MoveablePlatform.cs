@@ -34,4 +34,20 @@ public class MoveablePlatform : MonoBehaviour
 
         this.transform.position = Vector3.MoveTowards(transform.position, Waypoints[_index].transform.position, _speed * Time.deltaTime);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == 9)
+        {
+            collision.transform.SetParent(this.transform);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == 9)
+        {
+            collision.transform.SetParent(null);
+        }
+    }
 }
