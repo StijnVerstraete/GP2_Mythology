@@ -15,7 +15,7 @@ TBD
 
 ## Prerequisites
 
-- [Unity 2018.3.5f1](unityhub://2018.3.5f1/76b3e37670a4)
+- [Unity 2018.3.5f1](https://unity3d.com/get-unity/download/archive)
 
 ## License
 
