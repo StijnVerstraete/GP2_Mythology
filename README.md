@@ -19,4 +19,4 @@ TBD
 
 ## License
 
-This work is licensed, contact [Howest Kortrijk](the.level@howest.be)
+This work is licensed, contact [Howest Kortrijk](the.level@howest.be) for more details.
