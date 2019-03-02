@@ -5,10 +5,15 @@ using UnityEngine;
 public class CloudBehaviourEnemy : MonoBehaviour
 {
     [SerializeField]
+    private Transform[] Waypoints;
+    [SerializeField]
     private GameObject _lightningbolt;
     [SerializeField]
     private Transform _lightningPosition;
+    [SerializeField]
+    private float _speed = 1;
 
+    private int _index = 0;
     private SpriteRenderer _renderer;
     private float _timer;
     private bool _isShoot = false;
@@ -18,6 +23,7 @@ public class CloudBehaviourEnemy : MonoBehaviour
     void Start()
     {
         _renderer = GetComponent<SpriteRenderer>();
+        this.transform.position = Waypoints[_index].position;
     }
 
     // Update is called once per frame
@@ -25,10 +31,12 @@ public class CloudBehaviourEnemy : MonoBehaviour
     {
         _timer += Time.deltaTime;
 
-        //todo color lerp
+        MoveCloudBetweenWaypoints();
+
+        //todo
         // shaking
 
-        
+
 
         if (_timer >= 3 && _timer <= 7)
         {
@@ -50,6 +58,17 @@ public class CloudBehaviourEnemy : MonoBehaviour
             _renderer.color = Color.Lerp(Color.black, Color.white, 1);
         }
         
+    }
+
+    private void MoveCloudBetweenWaypoints()
+    {
+        if (Vector3.Distance(transform.position, Waypoints[_index].position) <= _speed * Time.deltaTime)
+        {
+            ++_index;
+            _index %= Waypoints.Length;
+        }
+
+        this.transform.position = Vector3.MoveTowards(transform.position, Waypoints[_index].transform.position, _speed * Time.deltaTime);
     }
 
     private void ShootLightningbolt()
