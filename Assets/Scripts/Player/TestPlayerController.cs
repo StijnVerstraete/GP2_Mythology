@@ -4,7 +4,15 @@ using UnityEngine;
 
 public class TestPlayerController : MonoBehaviour
 {
-    
+    private int _health;
+
+    public int Health
+    {
+        get { return _health; }
+        set { _health = value; }
+    }
+
+
     [SerializeField]
     private float _jumpForce = 1000f;
     [SerializeField]
@@ -21,7 +29,7 @@ public class TestPlayerController : MonoBehaviour
     void Start()
     {
         _rb = GetComponentInChildren<Rigidbody2D>();
-
+        _health = 3;
     }
 
     // Update is called once per frame
@@ -64,12 +72,21 @@ public class TestPlayerController : MonoBehaviour
 
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.layer == 12) //lightning
+        {
+            _health--;
+        }
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.layer == 11)
+        if (collision.gameObject.layer == 11) //platform
         {
             this.transform.SetParent(collision.transform);
         }
+        
     }
 
     private void OnCollisionExit2D(Collision2D collision)
