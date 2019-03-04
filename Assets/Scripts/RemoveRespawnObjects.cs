@@ -4,24 +4,28 @@ using UnityEngine;
 
 public class RemoveRespawnObjects : MonoBehaviour
 {
-    
     [SerializeField]
     private bool _ignorePlayer;
+
+    [SerializeField]
+    private LayerMask _lightningMask;
+    [SerializeField]
+    private LayerMask _playerMask;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         //lightning bolt
-        if (other.gameObject.layer == 12)
+        if (_lightningMask == (_lightningMask | (1 << other.gameObject.layer)))
         {
             Destroy(other.gameObject);
         }
 
         //player
-        if (other.gameObject.layer == 9 && !_ignorePlayer)
+        if (!_ignorePlayer && _playerMask == (_playerMask | (1 << other.gameObject.layer)) && other.tag == "Player")
         {
-            other.GetComponent<TestPlayerController>().Health = 0;
+            other.gameObject.GetComponent<TestPlayerController>().Health = 0;
         }
-        
+
     }
 
 }

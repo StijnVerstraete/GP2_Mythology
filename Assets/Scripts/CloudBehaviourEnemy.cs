@@ -42,13 +42,13 @@ public class CloudBehaviourEnemy : MonoBehaviour
         {
             _renderer.color = Color.Lerp(Color.white, Color.gray, 1);
            
-        }else if (_timer > 7 && _timer <= 10)
+        }else if (_timer > 7 && _timer <= 9)
         {
             _renderer.color = Color.Lerp(Color.gray, Color.black, 1);
             ShootLightningbolt();
 
         }
-        else if (_timer > 10)
+        else if (_timer > 9)
         {
             _isShoot = false;
             _timer = 0;
@@ -78,7 +78,14 @@ public class CloudBehaviourEnemy : MonoBehaviour
             Instantiate(_lightningbolt, _lightningPosition.position, _lightningPosition.rotation);
             _isShoot = true;
         }
-        
+    }
 
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.tag == "Player")
+        {
+            col.GetComponent<Rigidbody2D>().AddForce(Vector3.up * 1000);
+            this.enabled = false;
+        }
     }
 }

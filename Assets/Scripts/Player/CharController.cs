@@ -63,7 +63,7 @@ public class CharController : MonoBehaviour
 
     private void Action()
     {
-        Debug.Log("Player is using something");
+        //Debug.Log("Player is using something");
     }
 
     private void Jump()
@@ -85,7 +85,7 @@ public class CharController : MonoBehaviour
     {
         if(collision.gameObject.layer == 11)
         {
-            Debug.Log(_grounded);
+            //Debug.Log(_grounded);
             _grounded = true;
             this.transform.SetParent(collision.transform);
         }
@@ -93,7 +93,7 @@ public class CharController : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        Debug.Log(collision.gameObject.name);
+      //  Debug.Log(collision.gameObject.name);
         if (collision.gameObject.layer == 11)
         {
             this.transform.SetParent(null);

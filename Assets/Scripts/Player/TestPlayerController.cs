@@ -11,16 +11,23 @@ public class TestPlayerController : MonoBehaviour
         get { return _health; }
         set { _health = value; }
     }
-
-
+    
     [SerializeField]
     private float _jumpForce = 1000f;
     [SerializeField]
     private float _maxSpeed = 3;
+    [SerializeField]
+    private GroundCheck _ground;
+    [SerializeField]
+    private LayerMask _lightningMask;
+    [SerializeField]
+    private LayerMask _platformMask;
+    [SerializeField]
+    private LayerMask _enemyMask;
 
     private Rigidbody2D _rb;
     private float _move;
-    
+    private bool _grounded;
 
     private bool _facingLeft;
     
@@ -35,11 +42,23 @@ public class TestPlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("Ground " + _ground.IsGrounded);
         _move = Input.GetAxis("Horizontal");
 
         if (_move > 0 && _facingLeft || _move < 0 && !_facingLeft) Flip();
-        
-        if (Input.GetButtonDown("Jump")) Jump();
+
+        if (_ground.IsGrounded && Input.GetButtonDown("Jump")) { Jump(); }
+
+
+        if (!_ground.IsGrounded)
+        {
+            this.GetComponent<BoxCollider2D>().isTrigger = true;
+        }
+        else
+        {
+            this.GetComponent<BoxCollider2D>().isTrigger = false;
+        }
+            
 
         if (Input.GetButtonDown("Action")) Action();
 
@@ -58,7 +77,6 @@ public class TestPlayerController : MonoBehaviour
 
     private void Jump()
     {
-        // _rb.AddForce(new Vector2(0, _jumpForce));
         _rb.AddForce(Vector2.up * _jumpForce);
     }
 
@@ -69,29 +87,29 @@ public class TestPlayerController : MonoBehaviour
         Vector3 scale = transform.localScale;
         scale.x *= -1;
         transform.localScale = scale;
-
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.layer == 12) //lightning
+        if (_lightningMask == (_lightningMask | (1 << other.gameObject.layer)))
         {
             _health--;
         }
+
+        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.layer == 11) //platform
+        if (_platformMask == (_platformMask | (1 << collision.gameObject.layer)))
         {
             this.transform.SetParent(collision.transform);
         }
-        
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.layer == 11)
+        if (_platformMask == (_platformMask | (1 << collision.gameObject.layer)))
         {
             this.transform.SetParent(null);
         }
