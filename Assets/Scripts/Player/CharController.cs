@@ -26,6 +26,12 @@ public class CharController : MonoBehaviour
 
     #endregion
 
+    #region Properties
+
+    public bool IsMoving { get => _move != 0; }
+
+    #endregion
+
     #region Methods
 
     // Start is called before the first frame update
