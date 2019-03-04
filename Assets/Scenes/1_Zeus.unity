@@ -422,7 +422,7 @@ GameObject:
   - component: {fileID: 85723649}
   - component: {fileID: 85723648}
   - component: {fileID: 85723647}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: 1_Layer3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -746,6 +746,115 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 621248291}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &140392031
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4914100270452116437, guid: 44aecefa8065fdf4f98db223962d443c,
+        type: 3}
+      propertyPath: m_Name
+      value: ParallaxController
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914100270452116436, guid: 44aecefa8065fdf4f98db223962d443c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914100270452116436, guid: 44aecefa8065fdf4f98db223962d443c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914100270452116436, guid: 44aecefa8065fdf4f98db223962d443c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914100270452116436, guid: 44aecefa8065fdf4f98db223962d443c,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914100270452116436, guid: 44aecefa8065fdf4f98db223962d443c,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914100270452116436, guid: 44aecefa8065fdf4f98db223962d443c,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914100270452116436, guid: 44aecefa8065fdf4f98db223962d443c,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914100270452116436, guid: 44aecefa8065fdf4f98db223962d443c,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914100270452116436, guid: 44aecefa8065fdf4f98db223962d443c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914100270452116436, guid: 44aecefa8065fdf4f98db223962d443c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914100270452116436, guid: 44aecefa8065fdf4f98db223962d443c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914100270452116439, guid: 44aecefa8065fdf4f98db223962d443c,
+        type: 3}
+      propertyPath: ParallaxLayers.Array.data[0]
+      value: 
+      objectReference: {fileID: 768096654}
+    - target: {fileID: 4914100270452116439, guid: 44aecefa8065fdf4f98db223962d443c,
+        type: 3}
+      propertyPath: ShowFloat.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914100270452116439, guid: 44aecefa8065fdf4f98db223962d443c,
+        type: 3}
+      propertyPath: ParallaxLayers.Array.data[1]
+      value: 
+      objectReference: {fileID: 85723646}
+    - target: {fileID: 4914100270452116439, guid: 44aecefa8065fdf4f98db223962d443c,
+        type: 3}
+      propertyPath: ShowFloat.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914100270452116439, guid: 44aecefa8065fdf4f98db223962d443c,
+        type: 3}
+      propertyPath: ParallaxLayers.Array.data[2]
+      value: 
+      objectReference: {fileID: 272401069}
+    - target: {fileID: 4914100270452116439, guid: 44aecefa8065fdf4f98db223962d443c,
+        type: 3}
+      propertyPath: ShowFloat.Array.data[2]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914100270452116439, guid: 44aecefa8065fdf4f98db223962d443c,
+        type: 3}
+      propertyPath: ParallaxLayers.Array.data[3]
+      value: 
+      objectReference: {fileID: 1019484800}
+    - target: {fileID: 4914100270452116439, guid: 44aecefa8065fdf4f98db223962d443c,
+        type: 3}
+      propertyPath: ShowFloat.Array.data[3]
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 44aecefa8065fdf4f98db223962d443c, type: 3}
 --- !u!1001 &161844153
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -898,7 +1007,7 @@ GameObject:
   - component: {fileID: 272401072}
   - component: {fileID: 272401071}
   - component: {fileID: 272401070}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: 1_Layer4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2383,7 +2492,7 @@ GameObject:
   m_Component:
   - component: {fileID: 768096657}
   - component: {fileID: 768096656}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: 1_Layer2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2755,7 +2864,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1019484803}
   - component: {fileID: 1019484802}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: 1_Layer5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
