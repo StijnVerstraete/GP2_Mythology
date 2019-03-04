@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - stopPlatform
+  - scroll_1
   layers:
   - Default
   - TransparentFX
@@ -18,11 +19,9 @@ TagManager:
   - Player
   - Ground
   - Background
-  - 
+  - Pickup
   - Moveable Platform
   - Lightning
-  - 
-  - 
   - 
   - 
   - 
