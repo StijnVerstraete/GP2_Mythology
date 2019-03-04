@@ -9,11 +9,13 @@ public class CharController : MonoBehaviour
     #region Fields
     
     //--- Private
+    [SerializeField]
+    float _jumpForce = 400f;
 
     Rigidbody2D _rb;
     float _move;
     float _maxSpeed = 5;
-    float _jumpForce = 400f;
+    
     bool _facingLeft, _grounded;
     float _groundRadius = .1f;
 
@@ -66,7 +68,7 @@ public class CharController : MonoBehaviour
 
     private void Jump()
     {
-        _rb.AddForce(new Vector2(0, _jumpForce));
+       _rb.AddForce(new Vector2(0, _jumpForce));
     }
 
     // Flips the player to represent turning.
@@ -79,5 +81,23 @@ public class CharController : MonoBehaviour
             
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.layer == 11)
+        {
+            Debug.Log(_grounded);
+            _grounded = true;
+            this.transform.SetParent(collision.transform);
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        Debug.Log(collision.gameObject.name);
+        if (collision.gameObject.layer == 11)
+        {
+            this.transform.SetParent(null);
+        }
+    }
     #endregion
 }
