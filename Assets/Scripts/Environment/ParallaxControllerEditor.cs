@@ -44,9 +44,9 @@ public class ParallaxControllerEditor : Editor
     private void RefreshFloatList()
     {
         List<float> _parallaxSpeedsTemp = _parallaxCon.ParallaxSpeeds;
-        _parallaxCon.ShowFloat.Clear();
+        _parallaxCon.ParallaxSpeeds.Clear();
         for (int i = 0; i < _parallaxCon.ParallaxLayers.Length; i++) _parallaxCon.ParallaxSpeeds.Add(_parallaxSpeedsTemp[i]);
-        Debug.Log("Refreshed list!");
+        Debug.Log("Refreshed float list!");
     }
 
     private void FillList()
@@ -60,12 +60,12 @@ public class ParallaxControllerEditor : Editor
     {
         _parallaxCon.ParallaxSpeeds.Clear();
         for (int i = 0; i < _parallaxCon.ParallaxLayers.Length; i++) _parallaxCon.ParallaxSpeeds.Add(0f);
-        Debug.Log("Re-filled list!");
+        Debug.Log("Re-filled float list!");
     }
 
     private void AddValueToCollection(bool value)
     {
-        Debug.Log(string.Format("Added {0}", value));
+        //Debug.Log(string.Format("Added {0}", value));
         _parallaxCon.ShowFloat.Add(value);
     }
 

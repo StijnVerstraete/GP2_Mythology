@@ -336,12 +336,12 @@ MonoBehaviour:
   BackgroundLayer:
     serializedVersion: 2
     m_Bits: 2048
-  ShowFloat: 01010101
+  ShowFloat: 01000100
   ParallaxSpeeds:
   - 0.4
   - 0.3
   - 0.2
-  - 0
+  - 0.1
 --- !u!1 &741388618
 GameObject:
   m_ObjectHideFlags: 0
