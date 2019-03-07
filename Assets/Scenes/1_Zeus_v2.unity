@@ -355,7 +355,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UiScaleMode: 0
-  m_ReferencePixelsPerUnit: 100
+  m_ReferencePixelsPerUnit: 72
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
@@ -373,9 +373,9 @@ Canvas:
   m_GameObject: {fileID: 68877869}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
+  m_RenderMode: 1
+  m_Camera: {fileID: 286124770}
+  m_PlaneDistance: 1
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -383,7 +383,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1002
   m_TargetDisplay: 0
 --- !u!224 &68877873
 RectTransform:
@@ -1010,6 +1010,18 @@ MonoBehaviour:
   _enemyMask:
     serializedVersion: 2
     m_Bits: 0
+--- !u!114 &217459011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 217459004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0d9e9bb64ef7aa4f9f3622d6346ca19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &224416480 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 360415457700863506, guid: e00ba09d585ea064db36d5d78ee8cfa2,
@@ -1245,6 +1257,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!20 &286124770 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 1873260368937157432, guid: 925c281cb993fcc4594f870f1e96d353,
+    type: 3}
+  m_PrefabInstance: {fileID: 780490899}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &300258918 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9011746907875932732, guid: ba04c229bd87bee4e9bfad5db7865f6d,
@@ -4063,7 +4081,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []

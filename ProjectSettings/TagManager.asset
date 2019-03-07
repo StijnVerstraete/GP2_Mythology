@@ -6,6 +6,7 @@ TagManager:
   tags:
   - stopPlatform
   - scroll_1
+  - ScrollUI
   layers:
   - Default
   - TransparentFX
