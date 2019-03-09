@@ -25,6 +25,6 @@ public class CameraBehaviour : MonoBehaviour
     void LateUpdate()
     {
         // Set the position of the camera's transform to be the same as the player's, but offset by the calculated offset distance.
-        this.transform.position = _player.transform.position + _offset;
+        this.transform.position = Vector3.MoveTowards(_player.transform.position + _offset,transform.position,0.2f);
     }
 }
