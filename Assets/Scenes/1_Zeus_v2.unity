@@ -446,7 +446,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 81.92, y: 51.65}
+    oldSize: {x: 81.92, y: 40.96}
     newSize: {x: 81.92, y: 41.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -554,7 +554,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 8f4e8642e2f5d384b9dadb1d13eb99ea, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -850,6 +850,46 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4914100270452116439, guid: 44aecefa8065fdf4f98db223962d443c,
+        type: 3}
+      propertyPath: ParallaxLayers.Array.data[0]
+      value: 
+      objectReference: {fileID: 768096654}
+    - target: {fileID: 4914100270452116439, guid: 44aecefa8065fdf4f98db223962d443c,
+        type: 3}
+      propertyPath: ShowFloat.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914100270452116439, guid: 44aecefa8065fdf4f98db223962d443c,
+        type: 3}
+      propertyPath: ParallaxLayers.Array.data[1]
+      value: 
+      objectReference: {fileID: 85723646}
+    - target: {fileID: 4914100270452116439, guid: 44aecefa8065fdf4f98db223962d443c,
+        type: 3}
+      propertyPath: ShowFloat.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914100270452116439, guid: 44aecefa8065fdf4f98db223962d443c,
+        type: 3}
+      propertyPath: ParallaxLayers.Array.data[2]
+      value: 
+      objectReference: {fileID: 272401069}
+    - target: {fileID: 4914100270452116439, guid: 44aecefa8065fdf4f98db223962d443c,
+        type: 3}
+      propertyPath: ShowFloat.Array.data[2]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914100270452116439, guid: 44aecefa8065fdf4f98db223962d443c,
+        type: 3}
+      propertyPath: ParallaxLayers.Array.data[3]
+      value: 
+      objectReference: {fileID: 1019484800}
+    - target: {fileID: 4914100270452116439, guid: 44aecefa8065fdf4f98db223962d443c,
+        type: 3}
+      propertyPath: ShowFloat.Array.data[3]
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44aecefa8065fdf4f98db223962d443c, type: 3}
 --- !u!1001 &161844153
@@ -966,24 +1006,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba04c229bd87bee4e9bfad5db7865f6d, type: 3}
---- !u!1 &217459004 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1873260367745351221, guid: 925c281cb993fcc4594f870f1e96d353,
-    type: 3}
-  m_PrefabInstance: {fileID: 780490899}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &217459010 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 217459010, guid: 925c281cb993fcc4594f870f1e96d353,
-    type: 3}
-  m_PrefabInstance: {fileID: 780490899}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 217459004}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 386922c381e72d8448f3f5cbf2d23925, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &224416480 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 360415457700863506, guid: e00ba09d585ea064db36d5d78ee8cfa2,
@@ -1051,7 +1073,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 81.92, y: 44.77}
+    oldSize: {x: 81.92, y: 40.96}
     newSize: {x: 81.92, y: 41.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1159,7 +1181,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 62f8c3ffb9f96ad418ba67afb5ab561e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1179,7 +1201,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 272401069}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 4}
+  m_LocalPosition: {x: 0, y: -0.28, z: 4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2600,7 +2622,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: 1701e721e119cdb4ab6d8dc168f6abf9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2903,7 +2925,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 872359d6668f38a449407231863d9d91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 217459010}
+  _player: {fileID: 0}
   _lives:
   - {fileID: 969748437}
   - {fileID: 915606908}
@@ -3163,6 +3185,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player objects
       objectReference: {fileID: 0}
+    - target: {fileID: 217459010, guid: 925c281cb993fcc4594f870f1e96d353, type: 3}
+      propertyPath: _jumpForce
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 217459010, guid: 925c281cb993fcc4594f870f1e96d353, type: 3}
+      propertyPath: _maxSpeed
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1873260368601251894, guid: 925c281cb993fcc4594f870f1e96d353,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3223,13 +3253,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 6.2
       objectReference: {fileID: 0}
-    - target: {fileID: 217459010, guid: 925c281cb993fcc4594f870f1e96d353, type: 3}
-      propertyPath: _jumpForce
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 217459010, guid: 925c281cb993fcc4594f870f1e96d353, type: 3}
-      propertyPath: _maxSpeed
-      value: 4
+    - target: {fileID: 1873260367745351240, guid: 925c281cb993fcc4594f870f1e96d353,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 925c281cb993fcc4594f870f1e96d353, type: 3}
@@ -4082,7 +4109,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: c4dc7d10e8e99634f96a761b1699a779, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4108,55 +4135,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1597693583 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4914100270452116437, guid: 44aecefa8065fdf4f98db223962d443c,
-    type: 3}
-  m_PrefabInstance: {fileID: 140392031}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1597693584
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1597693583}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fccd955dc833904a8b01643e0813d77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ParallaxLayers: []
-  BackgroundLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  ShowFloat: 
-  ParallaxSpeeds: []
 --- !u!4 &1605882079 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4820225850746470985, guid: cbb445b60f2a6024d8ebfc446106faa8,
     type: 3}
   m_PrefabInstance: {fileID: 1310671959}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1643289236 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2064382911758643046, guid: 925c281cb993fcc4594f870f1e96d353,
-    type: 3}
-  m_PrefabInstance: {fileID: 780490899}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1643289238
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1643289236}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bb0656fba7b7fd4094372d0ae9334ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _player: {fileID: 217459004}
 --- !u!4 &1650534043 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4820225850746470985, guid: cbb445b60f2a6024d8ebfc446106faa8,
