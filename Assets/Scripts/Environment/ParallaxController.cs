@@ -11,9 +11,7 @@ public class ParallaxController : MonoBehaviour
 
     //--- Private
     float _accelerationRate = .5f;
-    CharController _charCont;
-
-    // 
+    PlayerController _charCont;
 
     //--- Public
     public GameObject[] ParallaxLayers;
@@ -25,10 +23,12 @@ public class ParallaxController : MonoBehaviour
 
     #endregion
 
+    #region Methods
+
     // Start is called before the first frame update
     void Start()
     {
-        _charCont = GameObject.FindGameObjectWithTag("Player").GetComponent<CharController>();
+        _charCont = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
 
         // Add second background for each existing one.
         foreach (GameObject background in ParallaxLayers)
@@ -44,7 +44,7 @@ public class ParallaxController : MonoBehaviour
         if (ParallaxLayers.Length > 0) ProcessBackgroundLayers();
     }
 
-    private void ProcessBackgroundLayers()
+    void ProcessBackgroundLayers()
     {
         for (int i = 0; i < ParallaxLayers.Length; i++)
         {
@@ -53,9 +53,11 @@ public class ParallaxController : MonoBehaviour
         }
     }
 
-    private void ApplyParallax(int i)
+    void ApplyParallax(int i)
     {
         if (ParallaxLayers[i].transform.position.x < -35) ParallaxLayers[i].transform.position = new Vector3(0, ParallaxLayers[i].transform.position.y, 0);
         ParallaxLayers[i].transform.Translate(Vector3.left * Time.deltaTime * ((ParallaxSpeeds[i] > 0) ? ParallaxSpeeds[i] : _accelerationRate));
     }
+
+    #endregion
 }

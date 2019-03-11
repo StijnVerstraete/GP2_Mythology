@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class RemoveRespawnObjects : MonoBehaviour
 {
@@ -23,7 +21,7 @@ public class RemoveRespawnObjects : MonoBehaviour
         //player
         if (!_ignorePlayer && _playerMask == (_playerMask | (1 << other.gameObject.layer)) && other.tag == "Player")
         {
-            other.gameObject.GetComponent<TestPlayerController>().Health = 0;
+            other.gameObject.GetComponent<PlayerController>().Health = 0;
         }
 
     }
