@@ -1,13 +1,17 @@
 ﻿using UnityEngine;
 using UnityEditor;
-using System.Collections;
 using System.Collections.Generic;
-using System;
 
 [CustomEditor(typeof(ParallaxController))]
 public class ParallaxControllerEditor : Editor
 {
+    #region Fields
+
     ParallaxController _parallaxCon;
+
+    #endregion
+
+    #region Methods
 
     public override void OnInspectorGUI()
     {
@@ -33,51 +37,53 @@ public class ParallaxControllerEditor : Editor
         for (int i = 0; i < _parallaxCon.ParallaxLayers.Length; i++) HandleFloats(i);
     }
 
-    private void RefreshList()
+    void RefreshList()
     {
         List<bool> _showFloatTemp = _parallaxCon.ShowFloat;
         _parallaxCon.ShowFloat.Clear();
         for (int i = 0; i < _parallaxCon.ParallaxLayers.Length; i++) AddValueToCollection(_showFloatTemp[i]);
-        Debug.Log("Refreshed list!");
+        //Debug.Log("Refreshed list!");
     }
 
-    private void RefreshFloatList()
+    void RefreshFloatList()
     {
         List<float> _parallaxSpeedsTemp = _parallaxCon.ParallaxSpeeds;
         _parallaxCon.ParallaxSpeeds.Clear();
         for (int i = 0; i < _parallaxCon.ParallaxLayers.Length; i++) _parallaxCon.ParallaxSpeeds.Add(_parallaxSpeedsTemp[i]);
-        Debug.Log("Refreshed float list!");
+        //Debug.Log("Refreshed float list!");
     }
 
-    private void FillList()
+    void FillList()
     {
         _parallaxCon.ShowFloat.Clear();
         for (int i = 0; i < _parallaxCon.ParallaxLayers.Length; i++) AddValueToCollection(false);
-        Debug.Log("Re-filled list!");
+        //Debug.Log("Re-filled list!");
     }
 
-    private void FillFloatList()
+    void FillFloatList()
     {
         _parallaxCon.ParallaxSpeeds.Clear();
         for (int i = 0; i < _parallaxCon.ParallaxLayers.Length; i++) _parallaxCon.ParallaxSpeeds.Add(0f);
-        Debug.Log("Re-filled float list!");
+        //Debug.Log("Re-filled float list!");
     }
 
-    private void AddValueToCollection(bool value)
+    void AddValueToCollection(bool value)
     {
         //Debug.Log(string.Format("Added {0}", value));
         _parallaxCon.ShowFloat.Add(value);
     }
 
-    private void HandleToggle(int i)
+    void HandleToggle(int i)
     {
         _parallaxCon.ShowFloat[i] = EditorGUILayout.Toggle(string.Format("{0}", _parallaxCon.ParallaxLayers[i].name), _parallaxCon.ShowFloat[i]);
         if (!_parallaxCon.ShowFloat[i]) _parallaxCon.ShowFloat[i] = true;
         else if (_parallaxCon.ShowFloat[i]) _parallaxCon.ShowFloat[i] = false;
     }
 
-    private void HandleFloats(int i)
+    void HandleFloats(int i)
     {
         _parallaxCon.ParallaxSpeeds[i] = EditorGUILayout.FloatField(_parallaxCon.ParallaxLayers[i].name, _parallaxCon.ParallaxSpeeds[i]);
     }
+
+    #endregion
 }

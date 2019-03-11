@@ -1,12 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class HealthBehaviour : MonoBehaviour
 {
     [SerializeField]
-    private TestPlayerController _player;
+    private PlayerController _player;
     [SerializeField]
     private Image[] _lives;
     [SerializeField]
@@ -21,6 +19,9 @@ public class HealthBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Find player first, then try and do thing with it...
+        _player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+
         _liveIndex = _player.Health;
     }
 

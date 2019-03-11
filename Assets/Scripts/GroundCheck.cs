@@ -1,34 +1,36 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class GroundCheck : MonoBehaviour
 {
-    [SerializeField]
+    #region Fields
+
     private LayerMask _mask;
 
-    private bool _isGrounded;
+    #endregion
 
-    public bool IsGrounded
-    {
-        get { return _isGrounded; }
-        set { _isGrounded = value; }
-    }
-    
+    #region Properties
+
+    public bool IsGrounded { get; set; }
+
+    #endregion
+
+    #region Methods
+
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (_mask == (_mask | (1 << col.gameObject.layer)))
-        {
-            _isGrounded = true;
-        }
+        SetGrounded(col);
     }
 
     private void OnTriggerExit2D(Collider2D col)
     {
-        if (_mask == (_mask | (1 << col.gameObject.layer)))
-        {
-            _isGrounded = false;
-        }
-          
+        SetGrounded(col);
     }
+
+    private void SetGrounded(Collider2D col)
+    {
+        IsGrounded = !(_mask == (_mask | (1 << col.gameObject.layer)));
+    }
+
+    #endregion
+
 }
