@@ -12,6 +12,12 @@ public class CloudBehaviourEnemy : MonoBehaviour
     private Transform _lightningPosition;
     [SerializeField]
     private float _speed = 1;
+    [SerializeField]
+    private float _jumpSpeed = 500;
+    [SerializeField]
+    private LayerMask _groundMask;
+    [SerializeField]
+    private GameObject _lightningBox;
 
     private int _index = 0;
     private SpriteRenderer _renderer;
@@ -35,9 +41,6 @@ public class CloudBehaviourEnemy : MonoBehaviour
 
         //todo
         // shaking
-
-
-
         if (_timer >= 3 && _timer <= 7)
         {
             _renderer.color = Color.Lerp(Color.white, Color.gray, 1);
@@ -57,7 +60,11 @@ public class CloudBehaviourEnemy : MonoBehaviour
         {
             _renderer.color = Color.Lerp(Color.black, Color.white, 1);
         }
-        
+    }
+
+    private void FixedUpdate()
+    {
+        LightningStrike();
     }
 
     private void MoveCloudBetweenWaypoints()
@@ -82,10 +89,44 @@ public class CloudBehaviourEnemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
+        // put this in player
         if (col.tag == "Player")
         {
-            col.GetComponent<Rigidbody2D>().AddForce(Vector3.up * 1000);
-            this.enabled = false;
+            col.GetComponent<Rigidbody2D>().AddForce(Vector3.up * _jumpSpeed);
+            //this.enabled = false;
+            //this.GetComponentInParent<GameObject>().SetActive(false);
+            this.gameObject.SetActive(false);
+        }
+    }
+
+    private void LightningStrike()
+    {
+
+        // Cast a ray straight down.
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, Mathf.Infinity, _groundMask);
+
+        // If it hits something...
+        if (hit.collider != null)
+        {
+            // Calculate the distance from the surface and the "error" relative
+            // to the floating height.
+            float distance = Mathf.Abs(hit.point.y - transform.position.y);
+            //Debug.DrawRay(this.transform.position, hit.point, Color.green);
+
+            //Debug.Log(distance);
+
+            //Debug.DrawLine(this.transform.position, this.transform.position - new Vector3(0,distance,0));
+            _lightningBox.GetComponent<LineRenderer>().SetPosition(0, this.transform.position);
+
+            _lightningBox.GetComponent<LineRenderer>().SetPosition(1, this.transform.position - new Vector3(-0.5f, distance - 1.2f, 0));
+            _lightningBox.GetComponent<LineRenderer>().SetPosition(2, this.transform.position - new Vector3(0.2f, distance + 1.1f * -1, 0));
+        
+            _lightningBox.GetComponent<LineRenderer>().SetPosition(3, this.transform.position - new Vector3(-0.2f, distance, 0));
+
+
+
+            _lightningBox.GetComponent<BoxCollider2D>().offset = new Vector2(0, -(distance/2));
+            _lightningBox.GetComponent<BoxCollider2D>().size = new Vector2(1, distance);
         }
     }
 }
