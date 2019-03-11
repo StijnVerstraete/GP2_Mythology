@@ -6,7 +6,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: player-animation-base-2---hangtime_Resize_export1_0004_Frame-8
+  m_Name: Hangtime
   serializedVersion: 5
   m_AnimatorParameters: []
   m_AnimatorLayers: []

@@ -6,7 +6,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: player-animation-base-2---jump_Resize_export1_0004_Frame-6
+  m_Name: JumpTest
   serializedVersion: 5
   m_AnimatorParameters: []
   m_AnimatorLayers: []
