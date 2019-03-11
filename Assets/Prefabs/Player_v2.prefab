@@ -193,16 +193,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 386922c381e72d8448f3f5cbf2d23925, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _jumpForce: 1200
-  _maxSpeed: 3
-  _ground: {fileID: 3585830398374247444}
-  _lightningMask:
+  Ground: {fileID: 3585830398374247444}
+  LightningMask:
     serializedVersion: 2
     m_Bits: 16384
-  _platformMask:
+  PlatformMask:
     serializedVersion: 2
     m_Bits: 8192
-  _enemyMask:
+  EnemyMask:
     serializedVersion: 2
     m_Bits: 32768
 --- !u!1 &6365257431532374027
@@ -275,6 +273,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12fb3772f22d0254d89cabc4f14c0fdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mask:
-    serializedVersion: 2
-    m_Bits: 9216

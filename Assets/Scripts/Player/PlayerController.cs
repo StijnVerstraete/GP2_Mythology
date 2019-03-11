@@ -1,22 +1,19 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(BoxCollider2D))]
+[RequireComponent(typeof(PickupController))]
 public class PlayerController : MonoBehaviour
 {
     #region Fields
+    
+    //--- Public
+    public GroundCheck Ground;
+    public LayerMask LightningMask, PlatformMask, EnemyMask;
 
-    [SerializeField]
+    //--- Private
     float _jumpForce = 1000f;
-    [SerializeField]
     float _maxSpeed = 3;
-    [SerializeField]
-    GroundCheck _ground;
-    [SerializeField]
-    LayerMask _lightningMask;
-    [SerializeField]
-    LayerMask _platformMask;
-    [SerializeField]
-    LayerMask _enemyMask;
-
     Rigidbody2D _rb;
     float _move;
     bool _grounded;
@@ -51,9 +48,9 @@ public class PlayerController : MonoBehaviour
 
         if (_move > 0 && _facingLeft || _move < 0 && !_facingLeft) Flip();
 
-        if (_ground.IsGrounded && Input.GetButtonDown("Jump")) { Jump(); }
+        if (Ground.IsGrounded && Input.GetButtonDown("Jump")) { Jump(); }
 
-        _boxcollider.isTrigger = (!_ground.IsGrounded);
+        _boxcollider.isTrigger = (!Ground.IsGrounded);
 
         if (Input.GetButtonDown("Action")) Action();
 
@@ -86,7 +83,7 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (_lightningMask == (_lightningMask | (1 << other.gameObject.layer))) Health--;
+        if (LightningMask == (LightningMask | (1 << other.gameObject.layer))) Health--;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -101,7 +98,7 @@ public class PlayerController : MonoBehaviour
 
     bool IsPlatform(Collision2D _c)
     {
-        return (_platformMask == (_platformMask | (1 << _c.gameObject.layer)));
+        return (PlatformMask == (PlatformMask | (1 << _c.gameObject.layer)));
     }
 
     #endregion
