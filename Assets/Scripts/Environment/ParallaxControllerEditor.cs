@@ -35,6 +35,8 @@ public class ParallaxControllerEditor : Editor
         if (_parallaxCon.ParallaxSpeeds.Count != _parallaxCon.ParallaxLayers.Length) RefreshFloatList();
 
         for (int i = 0; i < _parallaxCon.ParallaxLayers.Length; i++) HandleFloats(i);
+
+        if (GUI.changed) { EditorUtility.SetDirty(target); }
     }
 
     void RefreshList()
