@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Ground " + Ground.IsGrounded);
+        //Debug.Log("Ground " + _ground.IsGrounded);
         _move = Input.GetAxis("Horizontal");
 
         if (_move > 0 && _facingLeft || _move < 0 && !_facingLeft) Flip();
