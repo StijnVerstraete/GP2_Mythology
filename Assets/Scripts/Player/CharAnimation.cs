@@ -10,8 +10,10 @@ public class CharAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log(_player.GetComponent<PlayerController>().Ground.IsGrounded);
+        bool isGrounded = _player.GetComponent<PlayerController>().Ground.IsGrounded;
         //set IsRunning
-        if (_player.GetComponent<Rigidbody2D>().velocity.x != 0)
+        if (_player.GetComponent<Rigidbody2D>().velocity.x != 0 && isGrounded)
         {
             _anim.SetBool("IsRunning", true);
             Debug.Log("IsRunning");
@@ -21,12 +23,12 @@ public class CharAnimation : MonoBehaviour
             _anim.SetBool("IsRunning", false);
         }
         //set isJumping && isFalling
-        if (_player.GetComponent<Rigidbody2D>().velocity.y > 0)
+        if (_player.GetComponent<Rigidbody2D>().velocity.y > 0 && !isGrounded)
         {
             _anim.SetBool("IsJumping", true);
             Debug.Log("IsJumping");
         }
-        else if (_player.GetComponent<Rigidbody2D>().velocity.y < 0)
+        else if (_player.GetComponent<Rigidbody2D>().velocity.y < 0 && !isGrounded)
         {
             _anim.SetBool("IsFalling", true);
             _anim.SetBool("IsJumping", false);
