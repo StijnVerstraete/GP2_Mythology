@@ -1,18 +1,27 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class UIHandler : MonoBehaviour
 {
 
+    #region Fields
+
+    //--- Public
     public Text TextBox;
     public GameObject[] AnswerButtons;
     public Text[] AnswerTexts;
     public string Question;
     public string[] Answers;
 
+    #endregion
+
+    #region Properties
+
     public PickupHandler ConnectedPickupHandler { get; set; }
+
+    #endregion
+
+    #region Methods
 
     private void Awake()
     {
@@ -33,4 +42,6 @@ public class UIHandler : MonoBehaviour
         Debug.Log(string.Format("Player selected option: {0}", _s));
         DisableMe();
     }
+
+    #endregion
 }
