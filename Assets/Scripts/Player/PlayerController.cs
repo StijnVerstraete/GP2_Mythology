@@ -1,8 +1,8 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(BoxCollider2D))]
-[RequireComponent(typeof(PickupController))]
 public class PlayerController : MonoBehaviour
 {
     #region Fields
@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     //--- Public
     public GroundCheck Ground;
     public LayerMask LightningMask, PlatformMask, EnemyMask;
+    public bool IsHandlingUI;
 
     //--- Private
     float _jumpForce = 1000f;
@@ -43,6 +44,13 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!IsHandlingUI) ProcessInput();
+        else if (_move != 0) _move = 0;
+
+    }
+
+    private void ProcessInput()
+    {
         //Debug.Log("Ground " + _ground.IsGrounded);
         _move = Input.GetAxis("Horizontal");
 
@@ -53,7 +61,6 @@ public class PlayerController : MonoBehaviour
         _boxcollider.isTrigger = (!Ground.IsGrounded);
 
         if (Input.GetButtonDown("Action")) Action();
-
     }
 
     // Using FixedUpdate because physx

@@ -335,7 +335,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3903193994617556111}
   m_HandleRect: {fileID: 978058585935676652}
   m_Direction: 0
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -928,9 +928,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8754191106066982327}
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 162340034423981087}
+        m_MethodName: DisableMe
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1132,7 +1132,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 3227943929966490228}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.33476788
+  m_Size: 0.32654738
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1187,6 +1187,7 @@ GameObject:
   - component: {fileID: 8754191106066982320}
   - component: {fileID: 8754191106066982321}
   - component: {fileID: 8754191106066982326}
+  - component: {fileID: 162340034423981087}
   m_Layer: 5
   m_Name: UI_Scroll
   m_TagString: Untagged
@@ -1274,3 +1275,15 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &162340034423981087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8754191106066982327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dcbecadcd95ef94fb8b4afbdfa98cc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

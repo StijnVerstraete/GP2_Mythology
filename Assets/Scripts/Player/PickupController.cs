@@ -7,7 +7,7 @@ public class PickupController : MonoBehaviour
     #region Fields
 
     //--- private
-    static GameObject _scrollUIPrefab, _scrollUIGO, _dialogUIPrefab, _dialogGO;
+    static GameObject _scrollUIPrefab, _scrollUIGO, _dialogUIPrefab, _dialogGO, _activeGO;
 
     //--- public
     static public bool IsActive;
@@ -34,7 +34,7 @@ public class PickupController : MonoBehaviour
         // Set the main camera as the render camera
         _scrollUIGO.GetComponent<Canvas>().worldCamera = Camera.main;
         _dialogGO.GetComponent<Canvas>().worldCamera = Camera.main;
-        
+
         //Debug.Log("Initialized PickupController");
     }
 
@@ -44,21 +44,27 @@ public class PickupController : MonoBehaviour
         {
             case "scroll_1":
                 // TODO: argument should be the string containing text on scroll.
-                ActivateUI(_scrollUIGO);
+                ToggleUIState(_scrollUIGO);
                 break;
             case "endboss":
-                // TODO: argument should be the string containing text on scroll.
-                ActivateUI(_dialogGO);
+                ToggleUIState(_dialogGO);
                 break;
             default:
                 break;
         }
     }
 
-    static void ActivateUI(GameObject _go)
+    static public void DisableActiveUI(bool _bool)
     {
+        _activeGO.SetActive(false);
+        IsActive = false;
+    }
+
+    static public void ToggleUIState(GameObject _go)
+    {
+        _activeGO = _go;
         IsActive = true;
-        _go.SetActive(true);
+        _activeGO.SetActive(true);
     }
 
     #endregion
