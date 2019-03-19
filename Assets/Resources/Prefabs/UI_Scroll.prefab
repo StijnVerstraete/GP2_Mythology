@@ -148,8 +148,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1279.5, y: 692.3}
+  m_AnchoredPosition: {x: 0, y: -41.6}
+  m_SizeDelta: {x: 1279.5, y: 609}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &407084136455128201
 MonoBehaviour:
@@ -1131,8 +1131,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 9036003777830263813}
   m_HandleRect: {fileID: 3227943929966490228}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.32654738
+  m_Value: 0.9999998
+  m_Size: 0.2862669
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1287,3 +1287,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dcbecadcd95ef94fb8b4afbdfa98cc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TextBox: {fileID: 0}
+  AnswerButtons: []
+  AnswerTexts: []
+  Question: 
+  Answers: []
