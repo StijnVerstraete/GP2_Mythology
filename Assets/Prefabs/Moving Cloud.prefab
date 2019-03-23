@@ -4742,7 +4742,7 @@ GameObject:
   - component: {fileID: 3826666877350847730}
   - component: {fileID: 274154377}
   - component: {fileID: 274154376}
-  m_Layer: 15
+  m_Layer: 14
   m_Name: LightningTriggerBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}

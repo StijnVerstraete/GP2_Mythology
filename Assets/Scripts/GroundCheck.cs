@@ -53,7 +53,7 @@ public class GroundCheck : MonoBehaviour
          */
         //IsGrounded = !(_mask == (_mask | (1 << col.gameObject.layer)));
 
-        Debug.Log("setgrounded: " + !(_mask == (_mask | (1 << col.gameObject.layer))));
+       // Debug.Log("setgrounded: " + !(_mask == (_mask | (1 << col.gameObject.layer))));
     }
 
     #endregion
