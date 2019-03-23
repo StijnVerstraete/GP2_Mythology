@@ -22,7 +22,7 @@ public class GroundCheck : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D col)
     {
         SetGrounded(col);
-        Debug.Log(col.gameObject.name);
+        //Debug.Log(col.gameObject.name);
 
         if (_mask == (_mask | (1 << col.gameObject.layer)))
         {
@@ -34,7 +34,7 @@ public class GroundCheck : MonoBehaviour
     private void OnTriggerExit2D(Collider2D col)
     {
         SetGrounded(col);
-        Debug.Log(col.gameObject.name);
+        //Debug.Log(col.gameObject.name);
 
         if (_mask == (_mask | (1 << col.gameObject.layer)))
         {
