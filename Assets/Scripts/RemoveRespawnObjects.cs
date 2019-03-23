@@ -19,11 +19,11 @@ public class RemoveRespawnObjects : MonoBehaviour
         }
 
         //player
-        if (!_ignorePlayer && _playerMask == (_playerMask | (1 << other.gameObject.layer)) && other.tag == "Player")
+        if (!_ignorePlayer && other.tag == "Player")
         {
             other.gameObject.GetComponent<PlayerController>().Health = 0;
         }
-
+        // && _playerMask == (_playerMask | (1 << other.gameObject.layer)) breaks it
     }
 
 }
