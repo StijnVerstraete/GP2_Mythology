@@ -1377,11 +1377,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3826666877350847731, guid: ba04c229bd87bee4e9bfad5db7865f6d,
-        type: 3}
-      propertyPath: m_Layer
-      value: 14
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba04c229bd87bee4e9bfad5db7865f6d, type: 3}
 --- !u!1 &438221136 stripped
@@ -3977,6 +3972,36 @@ PrefabInstance:
         type: 3}
       propertyPath: _mask.m_Bits
       value: 9216
+      objectReference: {fileID: 0}
+    - target: {fileID: 5597128652487669381, guid: e47e0bea0ac55eb4db0655158590e0f5,
+        type: 3}
+      propertyPath: IsHandlingUI
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5597128652487669381, guid: e47e0bea0ac55eb4db0655158590e0f5,
+        type: 3}
+      propertyPath: _moveableMask.m_Bits
+      value: 8192
+      objectReference: {fileID: 0}
+    - target: {fileID: 2888049231177071838, guid: e47e0bea0ac55eb4db0655158590e0f5,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.12656164
+      objectReference: {fileID: 0}
+    - target: {fileID: 2888049231177071838, guid: e47e0bea0ac55eb4db0655158590e0f5,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 9.686496
+      objectReference: {fileID: 0}
+    - target: {fileID: 2888049231177071838, guid: e47e0bea0ac55eb4db0655158590e0f5,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.3794996
+      objectReference: {fileID: 0}
+    - target: {fileID: 2888049231177071838, guid: e47e0bea0ac55eb4db0655158590e0f5,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1.7589992
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e47e0bea0ac55eb4db0655158590e0f5, type: 3}
