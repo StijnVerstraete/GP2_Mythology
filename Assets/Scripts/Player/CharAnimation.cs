@@ -16,7 +16,7 @@ public class CharAnimation : MonoBehaviour
         if (_player.GetComponent<Rigidbody2D>().velocity.x != 0 && isGrounded)
         {
             _anim.SetBool("IsRunning", true);
-            Debug.Log("IsRunning");
+            //Debug.Log("IsRunning");
         }
         else
         {
@@ -26,13 +26,13 @@ public class CharAnimation : MonoBehaviour
         if (_player.GetComponent<Rigidbody2D>().velocity.y > 0 && !isGrounded)
         {
             _anim.SetBool("IsJumping", true);
-            Debug.Log("IsJumping");
+            //Debug.Log("IsJumping");
         }
         else if (_player.GetComponent<Rigidbody2D>().velocity.y < 0 && !isGrounded)
         {
             _anim.SetBool("IsFalling", true);
             _anim.SetBool("IsJumping", false);
-            Debug.Log("IsFalilng");
+            //Debug.Log("IsFalilng");
         }
         else
         {
