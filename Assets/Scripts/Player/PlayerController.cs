@@ -12,9 +12,14 @@ public class PlayerController : MonoBehaviour
     public LayerMask LightningMask, PlatformMask, EnemyMask;
     public bool IsHandlingUI;
 
-    //--- Private
+    [SerializeField]
     float _jumpForce = 1000f;
+    [SerializeField]
     float _maxSpeed = 3;
+
+    //--- Private
+    //float _jumpForce = 1000f;
+    //float _maxSpeed = 3;
     Rigidbody2D _rb;
     float _move;
     bool _grounded;
@@ -133,7 +138,6 @@ public class PlayerController : MonoBehaviour
 
         if (hit.collider != null)
         {
-            Debug.Log(hit.collider.name);
             _isMoveablePlatformAboveHead = true;
         }
         else

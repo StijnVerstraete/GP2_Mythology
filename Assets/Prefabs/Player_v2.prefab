@@ -111,6 +111,7 @@ GameObject:
   - component: {fileID: 8122255189229908407}
   - component: {fileID: 6688251784367844387}
   - component: {fileID: 5597128652487669381}
+  - component: {fileID: 502976507}
   m_Layer: 0
   m_Name: Player_v2
   m_TagString: Player
@@ -203,6 +204,23 @@ MonoBehaviour:
   EnemyMask:
     serializedVersion: 2
     m_Bits: 32768
+  IsHandlingUI: 0
+  _jumpForce: 1000
+  _maxSpeed: 3
+--- !u!114 &502976507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3492624096388680825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 605da29c22789f74da7fe9178ff24a49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _anim: {fileID: 2256895656015085113}
+  _player: {fileID: 3492624096388680825}
 --- !u!1 &6365257431532374027
 GameObject:
   m_ObjectHideFlags: 0
@@ -248,7 +266,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.12656164, y: -0.3794996}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -259,7 +277,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 9.686496, y: 1.7589992}
   m_EdgeRadius: 0
 --- !u!114 &3585830398374247444
 MonoBehaviour:
@@ -275,4 +293,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 9216
