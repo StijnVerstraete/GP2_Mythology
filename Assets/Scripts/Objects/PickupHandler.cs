@@ -87,7 +87,30 @@ public class PickupHandler : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         // Check if collision with player
-        if (collision.gameObject.tag == "Player") HandlePickup();
+        // if (collision.gameObject.tag == "Player") HandlePickup();
+
+        if (collision.gameObject.tag == "Player") {
+            HandlePickup();
+
+            //search for the pickedscrolls gameobject
+            UIPickedScrolls scroll = GameObject.Find("PickedScrolls").GetComponent<UIPickedScrolls>();
+
+            //set the correct panel active so the player can press a number to read the scroll again
+            switch (gameObject.tag)
+            {
+                case "scroll_1":
+                    scroll.IsScroll01Picked = true;
+                    break;
+                case "scroll_2":
+                    scroll.IsScroll02Picked = true;
+                    break;
+                case "scroll_3":
+                    scroll.IsScroll03Picked = true;
+                    break;
+                default:
+                    break;
+            }
+        } 
     }
 
     void HandlePickup()

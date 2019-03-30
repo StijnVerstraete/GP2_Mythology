@@ -23,6 +23,8 @@ public class PickupController : MonoBehaviour
         _scrollUIPrefab = (GameObject)Resources.Load("Prefabs/UI_Scroll", typeof(GameObject));
         _dialogUIPrefab = (GameObject)Resources.Load("Prefabs/UI_Dialog", typeof(GameObject));
 
+       
+
         // Instantiate the prefab as a GameObject.
         _scrollUIGO = Instantiate(_scrollUIPrefab);
         _dialogGO = Instantiate(_dialogUIPrefab);
