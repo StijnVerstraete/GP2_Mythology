@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class UIHandler : MonoBehaviour
@@ -39,7 +40,13 @@ public class UIHandler : MonoBehaviour
             "C) The Great Hill of Singapore."
         }
     };
-    int _currentQuestion;
+    string[] _correctAnswersList = new string[]
+    {
+        "B",
+        "C",
+        "A"
+    };
+    int _currentQuestion, _correctAnswers;
 
     #endregion
 
@@ -53,6 +60,11 @@ public class UIHandler : MonoBehaviour
 
     private void Awake()
     {
+        FillQuestions();
+    }
+
+    void FillQuestions()
+    {
         TextBox.text = _questions[_currentQuestion];
         for (int i = 0; i < AnswerTexts.Length; i++)
         {
@@ -63,13 +75,25 @@ public class UIHandler : MonoBehaviour
     public void DisableMe()
     {
         ConnectedPickupHandler.DisableActiveUI();
-        if (_currentQuestion < 2) _currentQuestion++;
     }
 
-    public void SelectOption(string _s)
+    public void SelectOption(string _answer)
     {
-        Debug.Log(string.Format("Player selected option: {0}", _s));
-        DisableMe();
+        ProcessAnswer(_answer);
+        if (_currentQuestion < 2) HandleQuestions();
+        else DisableMe();
+    }
+
+    void ProcessAnswer(string _answer)
+    {
+        if (_correctAnswersList[_currentQuestion] == _answer) _correctAnswers++;
+        Debug.Log(string.Format("Player selected option: {0}, correct answers: {1}", _answer, _correctAnswers));
+    }
+
+    void HandleQuestions()
+    {
+        _currentQuestion++;
+        FillQuestions();
     }
 
     #endregion
