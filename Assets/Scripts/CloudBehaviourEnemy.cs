@@ -13,7 +13,7 @@ public class CloudBehaviourEnemy : MonoBehaviour
     [SerializeField]
     private float _speed = 1;
     [SerializeField]
-    private float _jumpSpeed = 500;
+    private float _jumpSpeed = 2000;
     [SerializeField]
     private LayerMask _groundMask;
     //[SerializeField]
@@ -22,11 +22,14 @@ public class CloudBehaviourEnemy : MonoBehaviour
     private GameObject _lightningParticle;
     [SerializeField]
     private GameObject _hitbox;
+    [SerializeField]
+    private Sprite[] _cloudImages;
 
     private int _index = 0;
     private SpriteRenderer _renderer;
     private float _timer;
     private bool _isShoot = false;
+    private bool _isPlayerHitCloud = false;
     
 
     // Start is called before the first frame update
@@ -41,33 +44,15 @@ public class CloudBehaviourEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _timer += Time.deltaTime;
+        if (!_isPlayerHitCloud)
+        {
+            _timer += Time.deltaTime;
 
-        MoveCloudBetweenWaypoints();
+            MoveCloudBetweenWaypoints();
 
-        //todo
-        // shaking
-        if (_timer >= 3 && _timer <= 7)
-        {
-            _renderer.color = Color.Lerp(Color.white, Color.gray, 1);
-           
-        }else if (_timer > 7 && _timer <= 9)
-        {
-            _renderer.color = Color.Lerp(Color.gray, Color.black, 1);
-            LightningStrike();
-
+            ChangeCloudSprite();
         }
-        else if (_timer > 9)
-        {
-            _isShoot = false;
-            _timer = 0;
-            _lightningParticle.SetActive(false);
-            _hitbox.SetActive(false);
-        }
-        else
-        {
-            _renderer.color = Color.Lerp(Color.black, Color.white, 1);
-        }
+        
     }
 
     private void FixedUpdate()
@@ -85,16 +70,50 @@ public class CloudBehaviourEnemy : MonoBehaviour
 
         this.transform.position = Vector3.MoveTowards(transform.position, Waypoints[_index].transform.position, _speed * Time.deltaTime);
     }
-    
+
+    private void ChangeCloudSprite()
+    {
+        //todo
+        // shaking
+        if (_timer >= 3 && _timer <= 5)
+        {
+            //_renderer.color = Color.Lerp(Color.white, Color.gray, 1);
+            _renderer.sprite = _cloudImages[1];
+        }
+        else if (_timer > 5 && _timer <= 7)
+        {
+            //_renderer.color = Color.Lerp(Color.gray, Color.black, 1);
+            _renderer.sprite = _cloudImages[2];
+            LightningStrike();
+
+        }
+        else if (_timer > 7)
+        {
+            _isShoot = false;
+            _timer = 0;
+            _lightningParticle.SetActive(false);
+            _hitbox.SetActive(false);
+        }
+        else if (!_isPlayerHitCloud)
+        {
+            //_renderer.color = Color.Lerp(Color.black, Color.white, 1);
+            _renderer.sprite = _cloudImages[0];
+        }
+    }
+
+
     private void OnTriggerEnter2D(Collider2D col)
     {
         //Debug.Log(col.gameObject.name);
+        //Debug.Log(col.gameObject.tag);
         // put this in player
-        if (col.tag == "Player")
+        if (col.gameObject.tag == "Player")
         {
+            _isPlayerHitCloud = true;
             col.GetComponent<Rigidbody2D>().AddForce(Vector3.up * _jumpSpeed);
             //this.enabled = false;
             //this.GetComponentInParent<GameObject>().SetActive(false);
+            //_renderer.sprite = _cloudImages[3];
             this.gameObject.SetActive(false);
         }
     }

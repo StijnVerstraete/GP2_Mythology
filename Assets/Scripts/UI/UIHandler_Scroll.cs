@@ -79,6 +79,7 @@ public class UIHandler_Scroll : MonoBehaviour
     public void DisableMe()
     {
         ConnectedPickupHandler.DisableActiveUI();
+        Time.timeScale = 1; // everything moves again
     }
 
     #endregion
