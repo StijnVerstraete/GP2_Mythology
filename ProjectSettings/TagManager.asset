@@ -5,9 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - stopPlatform
-  - scroll_1
   - ScrollUI
   - endboss
+  - scroll
+  - scroll_1
+  - scroll_2
+  - scroll_3
   layers:
   - Default
   - TransparentFX

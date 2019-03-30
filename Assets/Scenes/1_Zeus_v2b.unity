@@ -562,6 +562,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pickup (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5325614257808809151, guid: 985a1192d704e6941b9781ef59831755,
+        type: 3}
+      propertyPath: m_TagString
+      value: scroll_3
+      objectReference: {fileID: 0}
     - target: {fileID: 5325614257808809139, guid: 985a1192d704e6941b9781ef59831755,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2570,6 +2575,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pickup
+      objectReference: {fileID: 0}
+    - target: {fileID: 5325614257808809151, guid: 985a1192d704e6941b9781ef59831755,
+        type: 3}
+      propertyPath: m_TagString
+      value: scroll_1
       objectReference: {fileID: 0}
     - target: {fileID: 5325614257808809139, guid: 985a1192d704e6941b9781ef59831755,
         type: 3}
@@ -12875,6 +12885,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pickup (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5325614257808809151, guid: 985a1192d704e6941b9781ef59831755,
+        type: 3}
+      propertyPath: m_TagString
+      value: scroll_2
       objectReference: {fileID: 0}
     - target: {fileID: 5325614257808809139, guid: 985a1192d704e6941b9781ef59831755,
         type: 3}

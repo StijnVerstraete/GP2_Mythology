@@ -20,12 +20,29 @@ public class PickupHandler : MonoBehaviour
         _player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
 
         _UIGO = AutoInstantiate();
+        _UIGO.tag = gameObject.tag;
 
         // Set current GO as parent
         //_UIGO.transform.SetParent(gameObject.transform);
 
         // Set this controller as the connected one.
-        _UIGO.GetComponent<UIHandler>().ConnectedPickupHandler = this;
+        switch (gameObject.tag)
+        {
+            case "scroll_1":
+                _UIGO.GetComponent<UIHandler_Scroll>().ConnectedPickupHandler = this;
+                break;
+            case "scroll_2":
+                _UIGO.GetComponent<UIHandler_Scroll>().ConnectedPickupHandler = this;
+                break;
+            case "scroll_3":
+                _UIGO.GetComponent<UIHandler_Scroll>().ConnectedPickupHandler = this;
+                break;
+            case "endboss":
+                _UIGO.GetComponent<UIHandler>().ConnectedPickupHandler = this;
+                break;
+            default:
+                break;
+        }
 
         // Disable the GameObject so the player doesn't see the GUI when not supposed to.
         _UIGO.SetActive(false);
@@ -43,7 +60,12 @@ public class PickupHandler : MonoBehaviour
         switch (gameObject.tag)
         {
             case "scroll_1":
-                // TODO: argument should be the string containing text on scroll.
+                _class = "Prefabs/UI_Scroll";
+                break;
+            case "scroll_2":
+                _class = "Prefabs/UI_Scroll";
+                break;
+            case "scroll_3":
                 _class = "Prefabs/UI_Scroll";
                 break;
             case "endboss":
@@ -73,7 +95,8 @@ public class PickupHandler : MonoBehaviour
         _UIGO.SetActive(true);
         _player.IsHandlingUI = true;
 
-        if (gameObject.tag == "scroll_1") gameObject.SetActive(false);
+        string _theTag = gameObject.tag;
+        if (_theTag == "scroll_1" || _theTag == "scroll_2" || _theTag == "scroll_3") gameObject.SetActive(false);
 
         // If UI is child
         //gameObject.GetComponent<Renderer>().enabled = false;

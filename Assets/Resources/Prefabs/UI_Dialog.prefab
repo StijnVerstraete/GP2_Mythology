@@ -115,10 +115,10 @@ RectTransform:
   m_Father: {fileID: 847703296747021462}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.06, y: 0.76}
+  m_AnchorMin: {x: 0.06, y: 0.7}
   m_AnchorMax: {x: 0.94, y: 0.97}
-  m_AnchoredPosition: {x: -0.000061035156, y: 0}
-  m_SizeDelta: {x: 0, y: -0.000030518}
+  m_AnchoredPosition: {x: -0.000061035156, y: -0.000024796}
+  m_SizeDelta: {x: 0, y: 0.000061035}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4537302883188560127
 CanvasRenderer:
@@ -191,7 +191,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.18, y: 0.79}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0024414062, y: -14.665}
+  m_AnchoredPosition: {x: 0.0024414062, y: -14.664978}
   m_SizeDelta: {x: 0.0050049, y: 0.38999987}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1930729205618602149
@@ -473,7 +473,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.16999817, y: 0}
+  m_AnchoredPosition: {x: 0.16998291, y: 0}
   m_SizeDelta: {x: -0.34, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7848462074363812390
@@ -964,11 +964,6 @@ MonoBehaviour:
   - {fileID: 7998671105907313793}
   - {fileID: 1505454640515497753}
   - {fileID: 8421670506030763590}
-  Question: 1+1 = ?
-  Answers:
-  - Paris
-  - 2
-  - Yellow
 --- !u!1 &6883563277361728685
 GameObject:
   m_ObjectHideFlags: 0
