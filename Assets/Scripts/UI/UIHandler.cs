@@ -13,6 +13,7 @@ public class UIHandler : MonoBehaviour
     public Text[] AnswerTexts;
 
     //--- Private
+    private PlayerController _player;
     string[] _questions = new string[]
     {
         "What did Kronos do to Zeus' siblings?",
@@ -57,11 +58,12 @@ public class UIHandler : MonoBehaviour
     #endregion
 
     #region Methods
-
+    
     private void Awake()
     {
         FillQuestions();
     }
+    
 
     void FillQuestions()
     {
@@ -86,8 +88,22 @@ public class UIHandler : MonoBehaviour
 
     void ProcessAnswer(string _answer)
     {
-        if (_correctAnswersList[_currentQuestion] == _answer) _correctAnswers++;
+        if (_correctAnswersList[_currentQuestion] == _answer)
+        {
+            _correctAnswers++;
+        }
+        else
+        {
+            _player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+            _player.Health--;
+        }
         Debug.Log(string.Format("Player selected option: {0}, correct answers: {1}", _answer, _correctAnswers));
+
+
+        if (_correctAnswers == 3)
+        {
+            GameObject.Find("Endboss").GetComponent<Animator>().SetBool("BossIsFree", true);
+        }
     }
 
     void HandleQuestions()

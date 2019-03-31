@@ -15,7 +15,6 @@ public class PickupHandler : MonoBehaviour
 
     void Start()
     {
-
         // Recover the player
         _player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
 
@@ -91,7 +90,7 @@ public class PickupHandler : MonoBehaviour
 
         if (collision.gameObject.tag == "Player") {
             HandlePickup();
-
+            
             //search for the pickedscrolls gameobject
             UIPickedScrolls scroll = GameObject.Find("PickedScrolls").GetComponent<UIPickedScrolls>();
 
