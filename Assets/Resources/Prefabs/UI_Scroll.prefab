@@ -415,7 +415,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.03, y: 0.85}
   m_AnchorMax: {x: 0.98, y: 1}
-  m_AnchoredPosition: {x: -7.549988, y: -30.968002}
+  m_AnchoredPosition: {x: -7.550049, y: -30.968002}
   m_SizeDelta: {x: -15.099976, y: -1.3999939}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8222218969908054867
@@ -583,7 +583,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.03, y: 0}
   m_AnchorMax: {x: 0.97, y: 0.64}
-  m_AnchoredPosition: {x: 6, y: -27.699982}
+  m_AnchoredPosition: {x: 6, y: -27.699951}
   m_SizeDelta: {x: -2.3, y: 55.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5073131033529866303
@@ -896,7 +896,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.06, y: 0.57}
   m_AnchorMax: {x: 0.94, y: 0.94}
-  m_AnchoredPosition: {x: 0.000061035156, y: 0}
+  m_AnchoredPosition: {x: 0.00012207031, y: 0}
   m_SizeDelta: {x: 0.00024414, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4334077392410673515
@@ -1052,7 +1052,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 3227943929966490228}
   m_Direction: 2
   m_Value: 0.9999992
-  m_Size: 0.66654664
+  m_Size: 0.6245702
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1209,3 +1209,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TextBox: {fileID: 6045570517629019739}
   Title: {fileID: 2811033453234038661}
+  _button: {fileID: 7210945582927084193}

@@ -8,6 +8,8 @@ public class UIHandler_Scroll : MonoBehaviour
 
     //--- Public
     public Text TextBox, Title;
+    [SerializeField]
+    private Button _button;
 
     //--- Private
     int _currentText;
@@ -53,6 +55,15 @@ public class UIHandler_Scroll : MonoBehaviour
     private void Awake()
     {
         Invoke("DelayedStart", 1);
+    }
+
+    private void Update()
+    {
+        //if you press esc button the scroll will also hide
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            _button.onClick.Invoke(); //use the onclick event from the button
+        }
     }
 
     private void DelayedStart()
