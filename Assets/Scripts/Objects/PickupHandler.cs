@@ -119,9 +119,13 @@ public class PickupHandler : MonoBehaviour
         _player.IsHandlingUI = true;
 
         string _theTag = gameObject.tag;
-        if (_theTag == "scroll_1" || _theTag == "scroll_2" || _theTag == "scroll_3") gameObject.SetActive(false);
+        //if (_theTag == "scroll_1" || _theTag == "scroll_2" || _theTag == "scroll_3") gameObject.SetActive(false);
 
-        Time.timeScale = 0; // if player pick up a scroll everything stops moving so you don't have to worry to be hit by an cloud
+        if (_theTag == "scroll_1" || _theTag == "scroll_2" || _theTag == "scroll_3") {
+            gameObject.SetActive(false);
+            Time.timeScale = 0; // if player pick up a scroll everything stops moving so you don't have to worry to be hit by an cloud
+        }
+        
 
         // If UI is child
         //gameObject.GetComponent<Renderer>().enabled = false;
