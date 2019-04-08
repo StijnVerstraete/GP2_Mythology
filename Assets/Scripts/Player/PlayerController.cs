@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     float _jumpForce = 1000f;
     [SerializeField]
     float _maxSpeed = 3;
+    [SerializeField]
+    private RangeCollisionChecker _rangeCollisionChecker;
 
     //--- Private
     //float _jumpForce = 1000f;
@@ -65,7 +67,7 @@ public class PlayerController : MonoBehaviour
 
         if (Ground.IsGrounded && Input.GetButtonDown("Jump")) { Jump(); }
 
-        _boxcollider.isTrigger = (!Ground.IsGrounded && _isMoveablePlatformAboveHead);
+        _boxcollider.isTrigger = (!Ground.IsGrounded && _rangeCollisionChecker.IsSomethingChecked);
 
         if (Input.GetButtonDown("Action")) Action();
     }
@@ -75,7 +77,7 @@ public class PlayerController : MonoBehaviour
     {
         _rb.velocity = new Vector2(_move * _maxSpeed, _rb.velocity.y);
 
-        IsSomethingAboutMyHead();
+        
     }
 
     void Action()
@@ -133,17 +135,17 @@ public class PlayerController : MonoBehaviour
 
     private void IsSomethingAboutMyHead()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.up, Mathf.Infinity, PlatformMask);
-        Debug.DrawRay(transform.position, hit.point, Color.green);
+        //RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.up, Mathf.Infinity, PlatformMask);
+        //Debug.DrawRay(transform.position, hit.point, Color.green);
 
-        if (hit.collider != null)
-        {
-            _isMoveablePlatformAboveHead = true;
-        }
-        else
-        {
-            _isMoveablePlatformAboveHead = false;
-        }
+        //if (hit.collider != null)
+        //{
+        //    _isMoveablePlatformAboveHead = true;
+        //}
+        //else
+        //{
+        //    _isMoveablePlatformAboveHead = false;
+        //}
     }
 
 
