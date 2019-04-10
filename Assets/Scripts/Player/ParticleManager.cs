@@ -8,10 +8,17 @@ public class ParticleManager : MonoBehaviour
     [SerializeField] private GameObject _jumpParticles;
     [SerializeField] private GameObject _charCTRL;
 
+    [SerializeField] private GameObject _godStatue;
+
     private float _jumpParticleDelay = 0.5f;
 
     // Update is called once per frame
     void Update()
+    {
+        RunParticles();
+        JumpParticles();
+    }
+    private void RunParticles()
     {
         if (_charCTRL.GetComponent<Rigidbody2D>().velocity.x != 0 && _charCTRL.GetComponent<PlayerController>().Ground.IsGrounded)
         {
@@ -21,6 +28,10 @@ public class ParticleManager : MonoBehaviour
         {
             _runParticles.SetActive(false);
         }
+    }
+    private void JumpParticles()
+    {
+
         if (_charCTRL.GetComponent<PlayerController>().Ground.IsGrounded && Input.GetKeyDown(KeyCode.Space))
         {
             _jumpParticles.SetActive(true);

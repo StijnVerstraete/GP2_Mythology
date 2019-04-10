@@ -14,6 +14,10 @@ public class UIHandler : MonoBehaviour
 
     //--- Private
     private PlayerController _player;
+
+    //bossparticle
+    [SerializeField] private GameObject _bossParticle;
+
     string[] _questions = new string[]
     {
         "What did Kronos do to Zeus' siblings?",
@@ -62,6 +66,7 @@ public class UIHandler : MonoBehaviour
     private void Awake()
     {
         FillQuestions();
+        _bossParticle = GameObject.Find("BossParticle");
     }
     
 
@@ -103,6 +108,7 @@ public class UIHandler : MonoBehaviour
         if (_correctAnswers == 3)
         {
             GameObject.Find("Endboss").GetComponent<Animator>().SetBool("BossIsFree", true);
+            _bossParticle.SetActive(true);
         }
     }
 
