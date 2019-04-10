@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(BoxCollider2D))]
@@ -56,6 +57,8 @@ public class PlayerController : MonoBehaviour
     {
         if (!IsHandlingUI) ProcessInput();
         else if (_move != 0) _move = 0;
+
+        PostProManager();
     }
 
     private void ProcessInput()
@@ -147,7 +150,21 @@ public class PlayerController : MonoBehaviour
         //    _isMoveablePlatformAboveHead = false;
         //}
     }
+    public void TakeDamage()
+    {
+        Health -= 1;
+        Camera.main.GetComponent<ScreenShake>().enabled = true;
+        Camera.main.GetComponent<ScreenShake>().ShakeDuration = 2;
 
+        Camera.main.GetComponent<PostProcessVolume>().weight = 1;
+    }
+    private void PostProManager()
+    {
+        if (Camera.main.GetComponent<PostProcessVolume>().weight >0)
+        {
+            Camera.main.GetComponent<PostProcessVolume>().weight -= Time.deltaTime;
+        }
+    }
 
 
 

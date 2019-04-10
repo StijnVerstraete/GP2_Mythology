@@ -95,7 +95,7 @@ public class UIHandler : MonoBehaviour
         else
         {
             _player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-            _player.Health--;
+            _player.TakeDamage();
         }
         Debug.Log(string.Format("Player selected option: {0}, correct answers: {1}", _answer, _correctAnswers));
 

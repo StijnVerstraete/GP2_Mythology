@@ -8,7 +8,7 @@ public class LightningTriggerBox : MonoBehaviour
     {
         if (collision.tag == "Player") //if the thunder is hitting the player the health goes down with 1
         {
-            collision.GetComponent<PlayerController>().Health -= 1;
+            collision.GetComponent<PlayerController>().TakeDamage();
         }
     }
 }
