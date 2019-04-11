@@ -8,7 +8,6 @@ public class ParticleManager : MonoBehaviour
     [SerializeField] private GameObject _jumpParticles;
     [SerializeField] private GameObject _charCTRL;
 
-    [SerializeField] private GameObject _godStatue;
 
     private float _jumpParticleDelay = 0.5f;
 

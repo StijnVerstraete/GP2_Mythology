@@ -1516,7 +1516,6 @@ MonoBehaviour:
   _runParticles: {fileID: 989432858}
   _jumpParticles: {fileID: 1040125975}
   _charCTRL: {fileID: 502976502}
-  _godStatue: {fileID: 0}
 --- !u!4 &396818423 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4820225850882296378, guid: cbb445b60f2a6024d8ebfc446106faa8,
@@ -28502,7 +28501,14 @@ PrefabInstance:
       propertyPath: _player
       value: 
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 2938994579172185792, guid: 75d676cc74a2f6d4681601cf9d5c6a80,
+        type: 3}
+      propertyPath: volumeLayer.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8219063736307217545, guid: 75d676cc74a2f6d4681601cf9d5c6a80, type: 3}
+    - {fileID: 2938994579172185792, guid: 75d676cc74a2f6d4681601cf9d5c6a80, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 75d676cc74a2f6d4681601cf9d5c6a80, type: 3}
 --- !u!1 &1685446265
 GameObject:
@@ -28862,6 +28868,23 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!114 &1861186649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861186642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 11400000, guid: ab73a989ed89099488e743139375a463, type: 2}
+  isGlobal: 1
+  blendDistance: 0
+  weight: 1
+  priority: 0
 --- !u!1 &1881283350
 GameObject:
   m_ObjectHideFlags: 0
