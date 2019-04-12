@@ -18,39 +18,39 @@ public class UIHandler : MonoBehaviour
     //bossparticle
     [SerializeField] private GameObject _bossParticle;
 
-    string[] _questions = new string[]
-    {
-        "What did Kronos do to Zeus' siblings?",
-        "What happened to Semele?",
-        "Where does Zeus rule from?"
-    };
-    string[][] _answers = new string[][]
-    {
-        new string[]
-        {
-            "A) He raised them to resent Zeus.",
-            "B) He ate them.", // (correct)
-            "C) He made them fight each other to the death, until only Zeus was left."
-        },
-        new string[]
-        {
-            "A) She was stabbed in the gut by Hera, Zeus' angry wife.",
-            "B) She was devoured by her father, but then resqued by her brother, Zeus.",
-            "C) She was disintegrated by Zeus' glory." // (correct)
-        },
-        new string[]
-        {
-            "A) Mount Olympus.", // (correct)
-            "B) The House of Athens.",
-            "C) The Great Hill of Singapore."
-        }
-    };
-    string[] _correctAnswersList = new string[]
-    {
-        "B",
-        "C",
-        "A"
-    };
+    //string[] _questions = new string[]
+    //{
+    //    "What did Kronos do to Zeus' siblings?",
+    //    "What happened to Semele?",
+    //    "Where does Zeus rule from?"
+    //};
+    //string[][] _answers = new string[][]
+    //{
+    //    new string[]
+    //    {
+    //        "A) He raised them to resent Zeus.",
+    //        "B) He ate them.", // (correct)
+    //        "C) He made them fight each other to the death, until only Zeus was left."
+    //    },
+    //    new string[]
+    //    {
+    //        "A) She was stabbed in the gut by Hera, Zeus' angry wife.",
+    //        "B) She was devoured by her father, but then resqued by her brother, Zeus.",
+    //        "C) She was disintegrated by Zeus' glory." // (correct)
+    //    },
+    //    new string[]
+    //    {
+    //        "A) Mount Olympus.", // (correct)
+    //        "B) The House of Athens.",
+    //        "C) The Great Hill of Singapore."
+    //    }
+    //};
+    //string[] _correctAnswersList = new string[]
+    //{
+    //    "B",
+    //    "C",
+    //    "A"
+    //};
     int _currentQuestion, _correctAnswers;
 
     #endregion
@@ -66,16 +66,19 @@ public class UIHandler : MonoBehaviour
     private void Awake()
     {
         FillQuestions();
-        _bossParticle = GameObject.Find("BossParticle");
+        _bossParticle = GameObject.Find("Endboss");
+
+        Debug.Log(_bossParticle);
     }
     
 
     void FillQuestions()
     {
-        TextBox.text = _questions[_currentQuestion];
+        //TextBox.text = _questions[_currentQuestion];
+        TextBox.text = LikeADatabase._questions[_currentQuestion];
         for (int i = 0; i < AnswerTexts.Length; i++)
         {
-            AnswerTexts[i].text = _answers[_currentQuestion][i];
+            AnswerTexts[i].text = LikeADatabase._answers[_currentQuestion][i];
         }
     }
 
@@ -93,7 +96,7 @@ public class UIHandler : MonoBehaviour
 
     void ProcessAnswer(string _answer)
     {
-        if (_correctAnswersList[_currentQuestion] == _answer)
+        if (LikeADatabase._correctAnswersList[_currentQuestion] == _answer)
         {
             _correctAnswers++;
         }
