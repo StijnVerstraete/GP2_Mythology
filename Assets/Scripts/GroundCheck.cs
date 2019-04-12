@@ -13,11 +13,12 @@ public class GroundCheck : MonoBehaviour
     #region Properties
 
     public bool IsGrounded { get; set; }
+    public bool IsGroundedOnEnemy { get; set; }
 
     #endregion
 
     #region Methods
-    
+
 
     private void OnTriggerEnter2D(Collider2D col)
     {
@@ -27,6 +28,11 @@ public class GroundCheck : MonoBehaviour
         if (_mask == (_mask | (1 << col.gameObject.layer)))
         {
             IsGrounded = true;
+
+            if (col.tag == "Enemy")
+            {
+                IsGroundedOnEnemy = true;
+            }
         }
         //Debug.Log("trigger Enter: " + IsGrounded);
     }
@@ -34,8 +40,8 @@ public class GroundCheck : MonoBehaviour
     private void OnTriggerExit2D(Collider2D col)
     {
         SetGrounded(col);
-        //Debug.Log(col.gameObject.name);
-
+        
+        IsGroundedOnEnemy = false;
         if (_mask == (_mask | (1 << col.gameObject.layer)))
         {
             IsGrounded = false;

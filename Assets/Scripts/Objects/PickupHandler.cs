@@ -49,7 +49,7 @@ public class PickupHandler : MonoBehaviour
         // Set the main camera as the render camera
         _UIGO.GetComponent<Canvas>().worldCamera = Camera.main;
 
-        Debug.Log(string.Format("Initialized {0}", gameObject.tag));
+        //Debug.Log(string.Format("Initialized {0}", gameObject.tag));
         
     }
 

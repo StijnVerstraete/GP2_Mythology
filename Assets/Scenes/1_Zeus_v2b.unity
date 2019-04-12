@@ -2812,6 +2812,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 9.96
       objectReference: {fileID: 0}
+    - target: {fileID: 3826666878884430920, guid: ba04c229bd87bee4e9bfad5db7865f6d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba04c229bd87bee4e9bfad5db7865f6d, type: 3}
 --- !u!1001 &721921434
@@ -2905,6 +2910,11 @@ PrefabInstance:
         type: 3}
       propertyPath: _speed
       value: 2.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3826666878884430920, guid: ba04c229bd87bee4e9bfad5db7865f6d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba04c229bd87bee4e9bfad5db7865f6d, type: 3}
@@ -28150,7 +28160,7 @@ PrefabInstance:
     - target: {fileID: 3585830398374247444, guid: e47e0bea0ac55eb4db0655158590e0f5,
         type: 3}
       propertyPath: _mask.m_Bits
-      value: 9216
+      value: 41984
       objectReference: {fileID: 0}
     - target: {fileID: 5597128652487669381, guid: e47e0bea0ac55eb4db0655158590e0f5,
         type: 3}
@@ -28431,16 +28441,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 1789629914082926159, guid: 75d676cc74a2f6d4681601cf9d5c6a80,
-        type: 3}
-      propertyPath: near clip plane
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1789629914082926159, guid: 75d676cc74a2f6d4681601cf9d5c6a80,
-        type: 3}
-      propertyPath: m_ForceIntoRT
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1789629914082926158, guid: 75d676cc74a2f6d4681601cf9d5c6a80,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -28500,6 +28500,16 @@ PrefabInstance:
         type: 3}
       propertyPath: _player
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1789629914082926159, guid: 75d676cc74a2f6d4681601cf9d5c6a80,
+        type: 3}
+      propertyPath: near clip plane
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1789629914082926159, guid: 75d676cc74a2f6d4681601cf9d5c6a80,
+        type: 3}
+      propertyPath: m_ForceIntoRT
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2938994579172185792, guid: 75d676cc74a2f6d4681601cf9d5c6a80,
         type: 3}

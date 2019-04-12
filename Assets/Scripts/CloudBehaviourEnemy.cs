@@ -6,18 +6,12 @@ public class CloudBehaviourEnemy : MonoBehaviour
 {
     [SerializeField]
     private Transform[] Waypoints;
-    //[SerializeField]
-    //private GameObject _lightningbolt;
-    //[SerializeField]
-    //private Transform _lightningPosition;
     [SerializeField]
     private float _speed = 1;
     [SerializeField]
     private float _jumpSpeed = 2000;
-    [SerializeField]
-    private LayerMask _groundMask;
     //[SerializeField]
-    //private GameObject _lightningBox;
+    //private LayerMask _groundMask;
     [SerializeField]
     private GameObject _lightningParticle;
     [SerializeField]
@@ -107,15 +101,15 @@ public class CloudBehaviourEnemy : MonoBehaviour
         //Debug.Log(col.gameObject.name);
         //Debug.Log(col.gameObject.tag);
         // put this in player
-        if (col.gameObject.tag == "Player")
-        {
-            _isPlayerHitCloud = true;
-            col.GetComponent<Rigidbody2D>().AddForce(Vector3.up * _jumpSpeed);
-            //this.enabled = false;
-            //this.GetComponentInParent<GameObject>().SetActive(false);
-            //_renderer.sprite = _cloudImages[3];
-            this.gameObject.SetActive(false);
-        }
+        //if (col.gameObject.tag == "Player")
+        //{
+        //    _isPlayerHitCloud = true;
+        //    col.GetComponent<Rigidbody2D>().AddForce(Vector3.up * _jumpSpeed);
+        //    //this.enabled = false;
+        //    //this.GetComponentInParent<GameObject>().SetActive(false);
+        //    //_renderer.sprite = _cloudImages[3];
+        //    this.gameObject.SetActive(false);
+        //}
     }
 
     private void LightningStrike()

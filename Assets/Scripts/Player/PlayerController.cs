@@ -107,7 +107,16 @@ public class PlayerController : MonoBehaviour
         //why trigger this 2 times????
         //if (LightningMask == (LightningMask | (1 << other.gameObject.layer))) Health--;
 
-        
+        if (Ground.IsGroundedOnEnemy && EnemyMask == (EnemyMask | (1 << other.gameObject.layer)) )
+        {
+            _rb.AddForce(Vector2.up * 2000);
+            other.gameObject.SetActive(false);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        Ground.IsGroundedOnEnemy = false;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -128,6 +137,7 @@ public class PlayerController : MonoBehaviour
         {
             this.transform.SetParent(null);
         }
+        
     }
 
     bool IsPlatform(Collision2D _c)
@@ -135,21 +145,7 @@ public class PlayerController : MonoBehaviour
         return (PlatformMask == (PlatformMask | (1 << _c.gameObject.layer)));
     }
 
-
-    private void IsSomethingAboutMyHead()
-    {
-        //RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.up, Mathf.Infinity, PlatformMask);
-        //Debug.DrawRay(transform.position, hit.point, Color.green);
-
-        //if (hit.collider != null)
-        //{
-        //    _isMoveablePlatformAboveHead = true;
-        //}
-        //else
-        //{
-        //    _isMoveablePlatformAboveHead = false;
-        //}
-    }
+   
     public void TakeDamage()
     {
         Health -= 1;
@@ -165,8 +161,6 @@ public class PlayerController : MonoBehaviour
             Camera.main.GetComponent<PostProcessVolume>().weight -= Time.deltaTime;
         }
     }
-
-
 
     #endregion
 
