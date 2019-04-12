@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Content: {fileID: 8925152856256673512}
   m_Horizontal: 0
   m_Vertical: 1
-  m_MovementType: 1
+  m_MovementType: 2
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
@@ -198,7 +198,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2485720196917780174}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -336,7 +336,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 978058585935676652}
   m_Direction: 0
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.99999994
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -615,7 +615,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 886d92782cf77c04eb84da7828359cba, type: 3}
+    m_Font: {fileID: 12800000, guid: 3cd79474f80efee4da85560175b14288, type: 3}
     m_FontSize: 36
     m_FontStyle: 0
     m_BestFit: 0
@@ -1051,8 +1051,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 9036003777830263813}
   m_HandleRect: {fileID: 3227943929966490228}
   m_Direction: 2
-  m_Value: 0.99999976
-  m_Size: 0.68825585
+  m_Value: 0.999999
+  m_Size: 0.65940624
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
