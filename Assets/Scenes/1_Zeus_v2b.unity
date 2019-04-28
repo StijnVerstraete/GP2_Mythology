@@ -2451,6 +2451,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &564615201 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2256895656015085115, guid: e47e0bea0ac55eb4db0655158590e0f5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1532238312}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &577733100
 GameObject:
   m_ObjectHideFlags: 0
@@ -2642,6 +2648,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4519367572915902197, guid: cbb445b60f2a6024d8ebfc446106faa8,
+        type: 3}
+      propertyPath: _speed
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4820225850422214407, guid: cbb445b60f2a6024d8ebfc446106faa8,
         type: 3}
       propertyPath: m_Layer
@@ -2682,11 +2693,6 @@ PrefabInstance:
       propertyPath: Waypoints.Array.data[1]
       value: 
       objectReference: {fileID: 128407397}
-    - target: {fileID: 4519367572915902197, guid: cbb445b60f2a6024d8ebfc446106faa8,
-        type: 3}
-      propertyPath: _speed
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cbb445b60f2a6024d8ebfc446106faa8, type: 3}
 --- !u!1 &665163041
@@ -2885,15 +2891,15 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 19.47
       objectReference: {fileID: 0}
-    - target: {fileID: 3826666878884430923, guid: ba04c229bd87bee4e9bfad5db7865f6d,
-        type: 3}
-      propertyPath: _speed
-      value: 2.1
-      objectReference: {fileID: 0}
     - target: {fileID: 3826666878884430920, guid: ba04c229bd87bee4e9bfad5db7865f6d,
         type: 3}
       propertyPath: m_TagString
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 3826666878884430923, guid: ba04c229bd87bee4e9bfad5db7865f6d,
+        type: 3}
+      propertyPath: _speed
+      value: 2.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba04c229bd87bee4e9bfad5db7865f6d, type: 3}
@@ -2979,6 +2985,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4519367572915902197, guid: cbb445b60f2a6024d8ebfc446106faa8,
+        type: 3}
+      propertyPath: _speed
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4820225850422214407, guid: cbb445b60f2a6024d8ebfc446106faa8,
         type: 3}
       propertyPath: m_Layer
@@ -3019,11 +3030,6 @@ PrefabInstance:
       propertyPath: Waypoints.Array.data[1]
       value: 
       objectReference: {fileID: 1650534043}
-    - target: {fileID: 4519367572915902197, guid: cbb445b60f2a6024d8ebfc446106faa8,
-        type: 3}
-      propertyPath: _speed
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cbb445b60f2a6024d8ebfc446106faa8, type: 3}
 --- !u!1 &728987138
@@ -22300,6 +22306,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4519367572915902197, guid: cbb445b60f2a6024d8ebfc446106faa8,
+        type: 3}
+      propertyPath: _speed
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4820225850422214407, guid: cbb445b60f2a6024d8ebfc446106faa8,
         type: 3}
       propertyPath: m_Layer
@@ -22340,11 +22351,6 @@ PrefabInstance:
       propertyPath: Waypoints.Array.data[1]
       value: 
       objectReference: {fileID: 423572152}
-    - target: {fileID: 4519367572915902197, guid: cbb445b60f2a6024d8ebfc446106faa8,
-        type: 3}
-      propertyPath: _speed
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cbb445b60f2a6024d8ebfc446106faa8, type: 3}
 --- !u!1 &1126532019
@@ -27526,15 +27532,15 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 13.36
       objectReference: {fileID: 0}
-    - target: {fileID: 3826666878884430923, guid: ba04c229bd87bee4e9bfad5db7865f6d,
-        type: 3}
-      propertyPath: _speed
-      value: 2.1
-      objectReference: {fileID: 0}
     - target: {fileID: 3826666878884430920, guid: ba04c229bd87bee4e9bfad5db7865f6d,
         type: 3}
       propertyPath: m_TagString
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 3826666878884430923, guid: ba04c229bd87bee4e9bfad5db7865f6d,
+        type: 3}
+      propertyPath: _speed
+      value: 2.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba04c229bd87bee4e9bfad5db7865f6d, type: 3}
@@ -28206,6 +28212,11 @@ PrefabInstance:
       propertyPath: _rangeCollisionChecker
       value: 
       objectReference: {fileID: 2067415168}
+    - target: {fileID: 5597128652487669381, guid: e47e0bea0ac55eb4db0655158590e0f5,
+        type: 3}
+      propertyPath: _sprite
+      value: 
+      objectReference: {fileID: 564615201}
     - target: {fileID: 502976507, guid: e47e0bea0ac55eb4db0655158590e0f5, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -28476,6 +28487,16 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 1789629914082926159, guid: 75d676cc74a2f6d4681601cf9d5c6a80,
+        type: 3}
+      propertyPath: near clip plane
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1789629914082926159, guid: 75d676cc74a2f6d4681601cf9d5c6a80,
+        type: 3}
+      propertyPath: m_ForceIntoRT
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1789629914082926158, guid: 75d676cc74a2f6d4681601cf9d5c6a80,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -28535,16 +28556,6 @@ PrefabInstance:
         type: 3}
       propertyPath: _player
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1789629914082926159, guid: 75d676cc74a2f6d4681601cf9d5c6a80,
-        type: 3}
-      propertyPath: near clip plane
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1789629914082926159, guid: 75d676cc74a2f6d4681601cf9d5c6a80,
-        type: 3}
-      propertyPath: m_ForceIntoRT
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2938994579172185792, guid: 75d676cc74a2f6d4681601cf9d5c6a80,
         type: 3}
@@ -29678,15 +29689,15 @@ PrefabInstance:
       propertyPath: _speed
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 522835798149224573, guid: e00ba09d585ea064db36d5d78ee8cfa2,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 4.52
-      objectReference: {fileID: 0}
     - target: {fileID: 360415457135988898, guid: e00ba09d585ea064db36d5d78ee8cfa2,
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 522835798149224573, guid: e00ba09d585ea064db36d5d78ee8cfa2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.52
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e00ba09d585ea064db36d5d78ee8cfa2, type: 3}

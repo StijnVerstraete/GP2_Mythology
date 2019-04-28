@@ -4968,6 +4968,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: bfd40ade9c9c04d4c9acc16e1e5a61b2, type: 3}
   - {fileID: 21300000, guid: 070f99b331a968f4d8fd1afaef142d02, type: 3}
   - {fileID: 21300000, guid: 6b81c7c7912a8aa4095d3599e8521203, type: 3}
+  _sprite: {fileID: 3826666878884430925}
 --- !u!61 &1138847090
 BoxCollider2D:
   m_ObjectHideFlags: 0

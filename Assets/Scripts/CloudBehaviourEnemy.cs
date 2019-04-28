@@ -24,7 +24,12 @@ public class CloudBehaviourEnemy : MonoBehaviour
     private float _timer;
     private bool _isShoot = false;
     private bool _isPlayerHitCloud = false;
-    
+
+    private float _squish;
+    [SerializeField]
+    private Transform _sprite;
+    private int _squishFrame = 0;
+    private Vector3 _startScale;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +38,8 @@ public class CloudBehaviourEnemy : MonoBehaviour
         this.transform.position = Waypoints[_index].position;
         _lightningParticle.SetActive(false);
         _hitbox.SetActive(false);
+
+        _startScale = _sprite.localScale;
     }
 
     // Update is called once per frame
@@ -46,7 +53,11 @@ public class CloudBehaviourEnemy : MonoBehaviour
 
             ChangeCloudSprite();
         }
-        
+
+        //squish
+        _sprite.localScale = _startScale + new Vector3(0, _squish * Mathf.Sin(_squishFrame * 0.3f));
+        _squishFrame++;
+        _squish = Mathf.Lerp(_squish, 0, 0.1f);
     }
 
     private void FixedUpdate()
@@ -116,5 +127,16 @@ public class CloudBehaviourEnemy : MonoBehaviour
     {
         _lightningParticle.SetActive(true);
         _hitbox.SetActive(true);
+    }
+
+    public void CloudDie()
+    {
+       this.gameObject.SetActive(false);
+    }
+
+    public void CloudSQuash()
+    {
+        _squish = .6f;
+        _squishFrame = 0;
     }
 }
