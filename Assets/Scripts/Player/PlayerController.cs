@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 
@@ -31,6 +32,8 @@ public class PlayerController : MonoBehaviour
 
     private bool _isMoveablePlatformAboveHead;
 
+   
+
     #endregion
 
     #region Properties
@@ -50,6 +53,7 @@ public class PlayerController : MonoBehaviour
         _rb = GetComponentInChildren<Rigidbody2D>();
         _boxcollider = GetComponentInChildren<BoxCollider2D>();
         
+        
     }
 
     // Update is called once per frame
@@ -59,6 +63,8 @@ public class PlayerController : MonoBehaviour
         else if (_move != 0) _move = 0;
 
         PostProManager();
+
+        
     }
 
     private void ProcessInput()
@@ -110,8 +116,17 @@ public class PlayerController : MonoBehaviour
         if (Ground.IsGroundedOnEnemy && EnemyMask == (EnemyMask | (1 << other.gameObject.layer)) )
         {
             _rb.AddForce(Vector2.up * 2000);
-            other.gameObject.SetActive(false);
+            other.GetComponent<CloudBehaviourEnemy>().CloudSQuash();
+            
+
+            StartCoroutine(Test(other.gameObject));
         }
+    }
+
+    IEnumerator Test(GameObject other)
+    {
+        yield return new WaitForSeconds(1);
+        other.GetComponent<CloudBehaviourEnemy>().CloudDie();
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -161,7 +176,6 @@ public class PlayerController : MonoBehaviour
             Camera.main.GetComponent<PostProcessVolume>().weight -= Time.deltaTime;
         }
     }
-
     #endregion
 
 }
