@@ -18,6 +18,7 @@ public class CloudBehaviourEnemy : MonoBehaviour
     private GameObject _hitbox;
     [SerializeField]
     private Sprite[] _cloudImages;
+    
 
     private int _index = 0;
     private SpriteRenderer _renderer;
@@ -31,10 +32,16 @@ public class CloudBehaviourEnemy : MonoBehaviour
     private int _squishFrame = 0;
     private Vector3 _startScale;
 
+    private Animator _animator;
+
+    private int _isAngryParam = Animator.StringToHash("IsAngry");
+
+
     // Start is called before the first frame update
     void Start()
     {
         _renderer = GetComponent<SpriteRenderer>();
+        _animator = GetComponent<Animator>();
         this.transform.position = Waypoints[_index].position;
         _lightningParticle.SetActive(false);
         _hitbox.SetActive(false);
@@ -60,11 +67,6 @@ public class CloudBehaviourEnemy : MonoBehaviour
         _squish = Mathf.Lerp(_squish, 0, 0.1f);
     }
 
-    private void FixedUpdate()
-    {
-        //LightningStrike();
-    }
-
     private void MoveCloudBetweenWaypoints()
     {
         if (Vector3.Distance(transform.position, Waypoints[_index].position) <= _speed * Time.deltaTime)
@@ -78,49 +80,26 @@ public class CloudBehaviourEnemy : MonoBehaviour
 
     private void ChangeCloudSprite()
     {
-        //todo
-        // shaking
-        if (_timer >= 3 && _timer <= 5)
+        if ( _timer >= 5 && _timer <= 10)
         {
-            //_renderer.color = Color.Lerp(Color.white, Color.gray, 1);
-            _renderer.sprite = _cloudImages[1];
+            _animator.SetBool(_isAngryParam, true);
+            StartCoroutine(LightCoroutine(1));
         }
-        else if (_timer > 5 && _timer <= 7)
+        else if(_timer >= 10)
         {
-            //_renderer.color = Color.Lerp(Color.gray, Color.black, 1);
-            _renderer.sprite = _cloudImages[2];
-            LightningStrike();
-
-        }
-        else if (_timer > 7)
-        {
+            _animator.SetBool(_isAngryParam, false);
             _isShoot = false;
             _timer = 0;
             _lightningParticle.SetActive(false);
             _hitbox.SetActive(false);
-        }
-        else if (!_isPlayerHitCloud)
-        {
-            //_renderer.color = Color.Lerp(Color.black, Color.white, 1);
-            _renderer.sprite = _cloudImages[0];
+            StopAllCoroutines();
         }
     }
-
-
-    private void OnTriggerEnter2D(Collider2D col)
+    
+    IEnumerator LightCoroutine(int seconds)
     {
-        //Debug.Log(col.gameObject.name);
-        //Debug.Log(col.gameObject.tag);
-        // put this in player
-        //if (col.gameObject.tag == "Player")
-        //{
-        //    _isPlayerHitCloud = true;
-        //    col.GetComponent<Rigidbody2D>().AddForce(Vector3.up * _jumpSpeed);
-        //    //this.enabled = false;
-        //    //this.GetComponentInParent<GameObject>().SetActive(false);
-        //    //_renderer.sprite = _cloudImages[3];
-        //    this.gameObject.SetActive(false);
-        //}
+        yield return new WaitForSeconds(seconds);
+        LightningStrike();
     }
 
     private void LightningStrike()

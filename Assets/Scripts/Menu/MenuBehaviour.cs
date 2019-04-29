@@ -44,4 +44,9 @@ public class MenuBehaviour : MonoBehaviour
     {
         newPanel.SetActive(true);
     }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
 }
