@@ -19,7 +19,15 @@ public class ParticleManager : MonoBehaviour
     }
     private void RunParticles()
     {
-        if (_charCTRL.GetComponent<Rigidbody2D>().velocity.x != 0 && _charCTRL.GetComponent<PlayerController>().Ground.IsGrounded)
+        //if (_charCTRL.GetComponent<Rigidbody2D>().velocity.x != 0 && _charCTRL.GetComponent<PlayerController>().Ground.IsGrounded)
+        //{
+        //    _runParticles.SetActive(true);
+        //}
+        //else
+        //{
+        //    _runParticles.SetActive(false);
+        //}
+        if ((_charCTRL.GetComponent<Rigidbody2D>().velocity.x >= 0.001 || _charCTRL.GetComponent<Rigidbody2D>().velocity.x <= -0.001) && _charCTRL.GetComponent<PlayerController>().Ground.IsGrounded)
         {
             _runParticles.SetActive(true);
         }
@@ -27,6 +35,7 @@ public class ParticleManager : MonoBehaviour
         {
             _runParticles.SetActive(false);
         }
+        
     }
     private void JumpParticles()
     {
