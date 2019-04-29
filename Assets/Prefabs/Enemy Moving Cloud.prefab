@@ -4708,7 +4708,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9011746907875932732}
   m_Layer: 15
-  m_Name: Moving Cloud
+  m_Name: Enemy Moving Cloud
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4874,6 +4874,7 @@ GameObject:
   - component: {fileID: 3826666878884430923}
   - component: {fileID: 1138847090}
   - component: {fileID: 7181015943624921108}
+  - component: {fileID: 4169266470603511193}
   m_Layer: 15
   m_Name: cloud
   m_TagString: Enemy
@@ -4934,7 +4935,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: 522ea620d3980aa4eb1980a2fa182f3a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f47f7bf949754f7419141b90d3a70a0a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5015,3 +5016,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4169266470603511193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3826666878884430920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b457368f4031bae488f8728584129961, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sprite: {fileID: 3826666878884430925}

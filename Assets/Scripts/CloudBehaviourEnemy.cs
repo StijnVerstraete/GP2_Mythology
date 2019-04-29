@@ -26,15 +26,15 @@ public class CloudBehaviourEnemy : MonoBehaviour
     private bool _isShoot = false;
     private bool _isPlayerHitCloud = false;
 
-    private float _squish;
-    [SerializeField]
-    private Transform _sprite;
-    private int _squishFrame = 0;
-    private Vector3 _startScale;
+    //private float _squish;
+    //[SerializeField]
+    //private Transform _sprite;
+    //private int _squishFrame = 0;
+    //private Vector3 _startScale;
 
     private Animator _animator;
 
-    private int _isAngryParam = Animator.StringToHash("IsAngry");
+    private int _isDeadParam = Animator.StringToHash("IsDead");
 
 
     // Start is called before the first frame update
@@ -43,10 +43,11 @@ public class CloudBehaviourEnemy : MonoBehaviour
         _renderer = GetComponent<SpriteRenderer>();
         _animator = GetComponent<Animator>();
         this.transform.position = Waypoints[_index].position;
-        _lightningParticle.SetActive(false);
-        _hitbox.SetActive(false);
+        //_lightningParticle.SetActive(false);
+        //_hitbox.SetActive(false);
+        SetActiveState(false);
 
-        _startScale = _sprite.localScale;
+        //_startScale = _sprite.localScale;
     }
 
     // Update is called once per frame
@@ -60,11 +61,16 @@ public class CloudBehaviourEnemy : MonoBehaviour
 
             ChangeCloudSprite();
         }
+        else
+        {
+            this.GetComponent<BoxCollider2D>().enabled = false;
+            SetActiveState(false);
+        }
 
-        //squish
-        _sprite.localScale = _startScale + new Vector3(0, _squish * Mathf.Sin(_squishFrame * 0.3f));
-        _squishFrame++;
-        _squish = Mathf.Lerp(_squish, 0, 0.1f);
+        ////squish
+        //_sprite.localScale = _startScale + new Vector3(0, _squish * Mathf.Sin(_squishFrame * 0.3f));
+        //_squishFrame++;
+        //_squish = Mathf.Lerp(_squish, 0, 0.1f);
     }
 
     private void MoveCloudBetweenWaypoints()
@@ -80,42 +86,64 @@ public class CloudBehaviourEnemy : MonoBehaviour
 
     private void ChangeCloudSprite()
     {
+
         if ( _timer >= 5 && _timer <= 10)
         {
-            _animator.SetBool(_isAngryParam, true);
-            StartCoroutine(LightCoroutine(1));
+            //_animator.SetBool(_isAngryParam, true);
+            //StartCoroutine(LightCoroutine(1));
+            LightningStrike();
         }
         else if(_timer >= 10)
         {
-            _animator.SetBool(_isAngryParam, false);
+            //_animator.SetBool(_isAngryParam, false);
             _isShoot = false;
             _timer = 0;
-            _lightningParticle.SetActive(false);
-            _hitbox.SetActive(false);
-            StopAllCoroutines();
+            //_lightningParticle.SetActive(false);
+            //_hitbox.SetActive(false);
+            //StopAllCoroutines();
+
+            SetActiveState(false);
         }
     }
     
-    IEnumerator LightCoroutine(int seconds)
-    {
-        yield return new WaitForSeconds(seconds);
-        LightningStrike();
-    }
+    //IEnumerator LightCoroutine(int seconds)
+    //{
+    //    yield return new WaitForSeconds(seconds);
+    //    LightningStrike();
+    //}
 
     private void LightningStrike()
     {
-        _lightningParticle.SetActive(true);
-        _hitbox.SetActive(true);
+        //_lightningParticle.SetActive(true);
+        //_hitbox.SetActive(true);
+        SetActiveState(true);
     }
 
-    public void CloudDie()
+    private void SetActiveState(bool activeState)
     {
-       this.gameObject.SetActive(false);
+        _lightningParticle.SetActive(activeState);
+        _hitbox.SetActive(activeState);
     }
 
-    public void CloudSQuash()
+    public void CloudDieAnimation()
     {
-        _squish = .6f;
-        _squishFrame = 0;
+        _isPlayerHitCloud = true;
+        _animator.SetBool(_isDeadParam, true);
+
+        StartCoroutine(RemoveCloud(1.4f));
+
+       
     }
+
+    IEnumerator RemoveCloud(float timeInSeconds)
+    {
+        yield return new WaitForSeconds(timeInSeconds);
+        this.gameObject.SetActive(false);
+    }
+
+    //public void CloudSQuash()
+    //{
+    //    _squish = .6f;
+    //    _squishFrame = 0;
+    //}
 }

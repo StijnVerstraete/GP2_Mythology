@@ -116,17 +116,18 @@ public class PlayerController : MonoBehaviour
         if (Ground.IsGroundedOnEnemy && EnemyMask == (EnemyMask | (1 << other.gameObject.layer)) )
         {
             _rb.AddForce(Vector2.up * 2000);
-            other.GetComponent<CloudBehaviourEnemy>().CloudSQuash();
-            
+            other.GetComponent<CloudSquish>().CloudSQuash();
 
-            StartCoroutine(Test(other.gameObject));
+            other.GetComponent<CloudBehaviourEnemy>().CloudDieAnimation();
+           // StartCoroutine(Test(other.gameObject));
         }
     }
 
     IEnumerator Test(GameObject other)
     {
-        yield return new WaitForSeconds(1);
-        other.GetComponent<CloudBehaviourEnemy>().CloudDie();
+
+        yield return new WaitForSeconds(1.4f);
+        other.GetComponent<CloudBehaviourEnemy>().CloudDieAnimation();
     }
 
     private void OnTriggerExit2D(Collider2D collision)
