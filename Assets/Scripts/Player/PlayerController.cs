@@ -32,6 +32,8 @@ public class PlayerController : MonoBehaviour
 
     private bool _isMoveablePlatformAboveHead;
 
+    [SerializeField] SoundManager _soundManager;
+
    
 
     #endregion
@@ -77,7 +79,11 @@ public class PlayerController : MonoBehaviour
 
         if (_move > 0 && _facingLeft || _move < 0 && !_facingLeft) Flip();
 
-        if (Ground.IsGrounded && Input.GetButtonDown("Jump")) { Jump(); }
+        if (Ground.IsGrounded && Input.GetButtonDown("Jump"))
+        {
+            Jump();
+            _soundManager.Play("Jump", false, 0, 1);
+        }
 
         _boxcollider.isTrigger = (!Ground.IsGrounded && _rangeCollisionChecker.IsSomethingChecked);
 
@@ -88,8 +94,6 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         _rb.velocity = new Vector2(_move * _maxSpeed, _rb.velocity.y);
-
-        
     }
 
     void Action()
@@ -121,7 +125,7 @@ public class PlayerController : MonoBehaviour
         {
             _rb.AddForce(Vector2.up * 2000);
             other.GetComponent<CloudSquish>().CloudSQuash();
-
+            _soundManager.Play("Cloud", false, 0, 1);
             other.GetComponent<CloudBehaviourEnemy>().CloudDieAnimation();
            // StartCoroutine(Test(other.gameObject));
         }
