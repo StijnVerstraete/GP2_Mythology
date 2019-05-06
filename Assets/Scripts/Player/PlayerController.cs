@@ -95,7 +95,7 @@ public class PlayerController : MonoBehaviour
     void Action()
     {
         Debug.Log("Player is using something");
-        CinematicMode.Toggle();
+        //CinematicMode.Toggle();
     }
 
     void Jump()
