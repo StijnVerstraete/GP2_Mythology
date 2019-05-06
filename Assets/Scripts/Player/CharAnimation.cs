@@ -15,7 +15,7 @@ public class CharAnimation : MonoBehaviour
 
         if ((_player.GetComponent<Rigidbody2D>().velocity.x >= 0.002 || _player.GetComponent<Rigidbody2D>().velocity.x <= -0.002) && isGrounded)
         {
-            Debug.Log("VELOCITY: " + _player.GetComponent<Rigidbody2D>().velocity.x);
+            //Debug.Log("VELOCITY: " + _player.GetComponent<Rigidbody2D>().velocity.x);
             _anim.SetBool("IsRunning", true);
             //Debug.Log("IsRunning");
         }

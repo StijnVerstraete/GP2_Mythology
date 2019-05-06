@@ -68,7 +68,7 @@ public class UIHandler : MonoBehaviour
         FillQuestions();
         _bossParticle = GameObject.Find("Endboss");
 
-        Debug.Log(_bossParticle);
+        //Debug.Log(_bossParticle);
     }
     
 
