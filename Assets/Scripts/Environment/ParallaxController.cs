@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class ParallaxController : MonoBehaviour
@@ -55,8 +52,30 @@ public class ParallaxController : MonoBehaviour
 
     void ApplyParallax(int i)
     {
-        if (ParallaxLayers[i].transform.position.x < -35) ParallaxLayers[i].transform.position = new Vector3(0, ParallaxLayers[i].transform.position.y, 0);
-        ParallaxLayers[i].transform.Translate(Vector3.left * Time.deltaTime * ((ParallaxSpeeds[i] > 0) ? ParallaxSpeeds[i] : _accelerationRate));
+        // Check if one of the layers exiths the boundaries, if so, reset it.
+        BackgroundOutOfBoundsCheck(i);
+
+        // Added bit to make sure parallax moves in the players' direction
+        Vector3 _direction = (_charCont.MovementDirection == "left") ? Vector3.left : Vector3.right;
+
+        // Apply the movement
+        ParallaxLayers[i].transform.Translate(_direction * Time.deltaTime * ((ParallaxSpeeds[i] > 0) ? ParallaxSpeeds[i] : _accelerationRate));
+    }
+
+    void BackgroundOutOfBoundsCheck(int i)
+    {
+        Vector3 _size = ParallaxLayers[i].GetComponent<Renderer>().bounds.size;
+        float _xPosition = ParallaxLayers[i].transform.position.x;
+
+        // Check if exited left or right in that order. If so, reset.
+        if (_xPosition < -_size.x || _xPosition > _size.x) ResetBackgroundPosition(i, _size, (_xPosition < -_size.x));
+    }
+
+    void ResetBackgroundPosition(int i, Vector3 _size, bool _exitLeft)
+    {
+        //Debug.Log(string.Format("Reset layer {0} and exited {1}", i, (_exitLeft ? "left" : "right")));
+        float _xPosition = _exitLeft ? _size.x: -_size.x;
+        ParallaxLayers[i].transform.position = new Vector3(_xPosition, ParallaxLayers[i].transform.position.y, 0);
     }
 
     #endregion
