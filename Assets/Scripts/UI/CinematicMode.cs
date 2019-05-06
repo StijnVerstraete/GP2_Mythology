@@ -16,6 +16,9 @@ public static class CinematicMode
     static float _cameraZoomTarget, _initialValue;
     static readonly float _blendIncreaseStep = .0005f;
     static GameObject[] _borders;
+    static int _borderOffset = 4;
+    static float _incrementValue = 0f;
+    static Vector3 _botPos, _topPos;
 
     //--- Public
 
@@ -52,6 +55,9 @@ public static class CinematicMode
         _activeCamera = Camera.main;
         _cameraZoomTarget = _activeCamera.orthographicSize;
         _borders = _activeCamera.GetComponent<CameraController>().CameraBorders;
+        _topPos = _borders[0].transform.localPosition;
+        _botPos = _borders[1].transform.localPosition;
+        Debug.Log(string.Format("{0}, {1}", _topPos, _botPos));
         _isInitiated = true;
     }
 
@@ -88,28 +94,31 @@ public static class CinematicMode
 
     private static void HandleCamBorders()
     {
-        Vector3 _top = _borders[0].transform.position;
-        Vector3 _bottom = _borders[1].transform.position;
-        float _pos = _top.y;
-        float _pos2 = _bottom.y;
         if (Active)
         {
-            _pos--;
-            _pos2++;
+            _incrementValue += .01f;
         }
-        else {
-            _pos++;
-            _pos2--;
+        else
+        {
+            _incrementValue -= .01f;
         }
+        _incrementValue = Mathf.Clamp(_incrementValue, 0f, 1f);
+        HandleTopBorder();
+        HandleBottomBorder();
+    }
 
-        Mathf.Clamp(_pos, -50, 50);
-        Mathf.Clamp(_pos2, -50, 50);
+    private static void HandleTopBorder()
+    {
+        Vector3 _tempPosition = _topPos;
+        _tempPosition.z = Mathf.Lerp(_topPos.z - _borderOffset, _topPos.z, 1 - _incrementValue);
+        _borders[0].transform.localPosition = _tempPosition;
+    }
 
-        _top.y = _pos;
-        _bottom.y = _pos2;
-
-        _borders[0].transform.position = _top;
-        _borders[1].transform.position = _bottom;
+    private static void HandleBottomBorder()
+    {
+        Vector3 _tempPosition = _botPos;
+        _tempPosition.z = Mathf.Lerp(_botPos.z, _botPos.z + _borderOffset, _incrementValue);
+        _borders[1].transform.localPosition = _tempPosition;
     }
 
     #endregion
