@@ -1,12 +1,17 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
     #region Fields
 
+    //--- Private
     GameObject _player;
     Camera _camera;
     Vector3 _offset;
+
+    //--- Public
+    public GameObject[] CameraBorders;
 
     #endregion
 
@@ -30,6 +35,11 @@ public class CameraController : MonoBehaviour
 
         // Save position offset.
         _offset = transform.position - _player.transform.position;
+    }
+
+    void Update()
+    {
+        if (CinematicMode.Initialized) CinematicMode.HandleBlend();
     }
 
     // LateUpdate is called after Update each frame
