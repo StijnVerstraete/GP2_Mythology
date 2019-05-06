@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public static class CinematicMode
 {
@@ -44,7 +41,7 @@ public static class CinematicMode
         GetTargetZoom();
     }
 
-    private static void GetTargetZoom()
+    static void GetTargetZoom()
     {
         _cameraZoomTarget = Active ? _activeCamera.orthographicSize * _scale : _activeCamera.orthographicSize / _scale;
         _cameraZoomTarget = Mathf.Clamp(_cameraZoomTarget, 5.4f, 7.2f);
@@ -92,7 +89,7 @@ public static class CinematicMode
         HandleCamBorders();
     }
 
-    private static void HandleCamBorders()
+    static void HandleCamBorders()
     {
         if (Active)
         {
@@ -107,14 +104,14 @@ public static class CinematicMode
         HandleBottomBorder();
     }
 
-    private static void HandleTopBorder()
+    static void HandleTopBorder()
     {
         Vector3 _tempPosition = _topPos;
         _tempPosition.z = Mathf.Lerp(_topPos.z - _borderOffset, _topPos.z, 1 - _incrementValue);
         _borders[0].transform.localPosition = _tempPosition;
     }
 
-    private static void HandleBottomBorder()
+    static void HandleBottomBorder()
     {
         Vector3 _tempPosition = _botPos;
         _tempPosition.z = Mathf.Lerp(_botPos.z, _botPos.z + _borderOffset, _incrementValue);
