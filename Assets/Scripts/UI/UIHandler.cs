@@ -20,6 +20,9 @@ public class UIHandler : MonoBehaviour
     List<string> _correctQuestions = new List<string>();
     List<string> _correctResponses = new List<string>();
     List<string[]> _correctAnswersGiven = new List<string[]>();
+    List<string> _validQuestions;
+    List<string[]> _validAnswers;
+    List<string> _validCorrectAnswers;
 
     //bossparticle
     [SerializeField] private GameObject _bossParticle;
@@ -90,11 +93,7 @@ public class UIHandler : MonoBehaviour
     {
         //TextBox.text = _questions[_currentQuestion];
 
-        // Filter out all questions
-        List<string> _validQuestions = _allQuestions.Where(s => !_correctQuestions.Contains(s)).ToList();
-
-        // Filter out all answers
-        List<string[]> _validAnswers = _allAnswers.Where(a => !_correctAnswersGiven.Contains(a)).ToList();
+        FilterOutCorrectAnswers();
 
         // If question out of bounds, reduce it
         if (_currentQuestion > _validQuestions.Count - 1) _currentQuestion = 0;
@@ -120,6 +119,18 @@ public class UIHandler : MonoBehaviour
         }
     }
 
+    void FilterOutCorrectAnswers()
+    {
+        // Filter out all questions
+        _validQuestions = _allQuestions.Where(s => !_correctQuestions.Contains(s)).ToList();
+
+        // Filter out all answers
+        _validAnswers = _allAnswers.Where(a => !_correctAnswersGiven.Contains(a)).ToList();
+
+        // Filter out all correct answers
+        _validCorrectAnswers = _allCorrectAnswers.Where(a => !_correctResponses.Contains(a)).ToList();
+    }
+
     public void DisableMe()
     {
         ConnectedPickupHandler.DisableActiveUI();
@@ -128,27 +139,25 @@ public class UIHandler : MonoBehaviour
     public void SelectOption(string _answer)
     {
         ProcessAnswer(_answer);
-        if (_correctAnswersGiven.Count < 3) HandleQuestions();
+        if (_correctAnswersGiven.Count < 3) FillQuestions();
         else DisableMe();
     }
 
     void ProcessAnswer(string _answer)
     {
-        // Filter out all correct answers
-        List<string> _validCorrectAnswers = _allCorrectAnswers.Where(a => !_correctResponses.Contains(a)).ToList();
-
         Debug.Log(string.Format("Answered: {0}, correct: {1}", _answer, _validCorrectAnswers[_currentQuestion]));
 
         if (_validCorrectAnswers[_currentQuestion] == _answer)
         {
-            _correctQuestions.Add(_allQuestions[_currentQuestion]);
-            _correctResponses.Add(_allCorrectAnswers[_currentQuestion]);
-            _correctAnswersGiven.Add(_allAnswers[_currentQuestion]);
+            _correctQuestions.Add(_validQuestions[_currentQuestion]);
+            _correctResponses.Add(_validCorrectAnswers[_currentQuestion]);
+            _correctAnswersGiven.Add(_validAnswers[_currentQuestion]);
         }
         else
         {
             _player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
             _player.TakeDamage();
+            _currentQuestion++;
         }
         Debug.Log(string.Format("Player selected option: {0}, correct answers: {1}", _answer, _correctAnswersGiven.Count));
 
@@ -158,12 +167,6 @@ public class UIHandler : MonoBehaviour
             GameObject.Find("Endboss").GetComponent<Animator>().SetBool("BossIsFree", true);
             _bossParticle.SetActive(true);
         }
-    }
-
-    void HandleQuestions()
-    {
-        _currentQuestion++;
-        FillQuestions();
     }
 
     #endregion
