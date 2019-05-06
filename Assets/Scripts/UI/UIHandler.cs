@@ -69,11 +69,13 @@ public class UIHandler : MonoBehaviour
     #region Properties
 
     public PickupHandler ConnectedPickupHandler { get; set; }
+    SoundManager _soundManager;
+
 
     #endregion
 
     #region Methods
-    
+
     private void Awake()
     {
         // Recover all questions
@@ -84,6 +86,8 @@ public class UIHandler : MonoBehaviour
         FillQuestions();
 
         _bossParticle = GameObject.Find("Endboss");
+
+        _soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
 
         //Debug.Log(_bossParticle);
     }
@@ -171,6 +175,7 @@ public class UIHandler : MonoBehaviour
         {
             GameObject.Find("Endboss").GetComponent<Animator>().SetBool("BossIsFree", true);
             _bossParticle.SetActive(true);
+            _soundManager.Play("GodBreakout", false, 0, 1);
         }
     }
 

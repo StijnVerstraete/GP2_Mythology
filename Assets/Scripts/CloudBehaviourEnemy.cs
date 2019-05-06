@@ -18,6 +18,8 @@ public class CloudBehaviourEnemy : MonoBehaviour
     private GameObject _hitbox;
     [SerializeField]
     private Sprite[] _cloudImages;
+    [SerializeField]
+    private SpriteGlow.SpriteGlowEffect _glow;
     
 
     private int _index = 0;
@@ -46,6 +48,9 @@ public class CloudBehaviourEnemy : MonoBehaviour
         //_lightningParticle.SetActive(false);
         //_hitbox.SetActive(false);
         SetActiveState(false);
+        _glow = this.GetComponent<SpriteGlow.SpriteGlowEffect>();
+
+        _glow.enabled = false;
 
         //_startScale = _sprite.localScale;
     }
@@ -86,14 +91,18 @@ public class CloudBehaviourEnemy : MonoBehaviour
 
     private void ChangeCloudSprite()
     {
-
-        if ( _timer >= 5 && _timer <= 10)
+        if (_timer >= 4 && _timer < 5)
         {
+            _glow.enabled = true;
+        }else
+        if ( _timer >= 5 && _timer <= 8)
+        {
+            _glow.enabled = false;
             //_animator.SetBool(_isAngryParam, true);
             //StartCoroutine(LightCoroutine(1));
             LightningStrike();
         }
-        else if(_timer >= 10)
+        else if(_timer >= 8)
         {
             //_animator.SetBool(_isAngryParam, false);
             _isShoot = false;

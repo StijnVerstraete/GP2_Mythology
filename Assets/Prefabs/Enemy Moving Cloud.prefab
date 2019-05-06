@@ -4825,7 +4825,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3826666877714390660}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 16.61, y: -0.03, z: 0}
+  m_LocalPosition: {x: 13.36, y: -0.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 9011746907875932732}
@@ -4875,6 +4875,7 @@ GameObject:
   - component: {fileID: 1138847090}
   - component: {fileID: 7181015943624921108}
   - component: {fileID: 4169266470603511193}
+  - component: {fileID: 563247887}
   m_Layer: 15
   m_Name: cloud
   m_TagString: Enemy
@@ -4915,7 +4916,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4961,7 +4962,7 @@ MonoBehaviour:
   Waypoints:
   - {fileID: 3826666878484046895}
   - {fileID: 3826666877714390663}
-  _speed: 1.5
+  _speed: 2.1
   _jumpSpeed: 2000
   _lightningParticle: {fileID: 1324306647}
   _hitbox: {fileID: 3826666877350847731}
@@ -4970,6 +4971,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: bfd40ade9c9c04d4c9acc16e1e5a61b2, type: 3}
   - {fileID: 21300000, guid: 070f99b331a968f4d8fd1afaef142d02, type: 3}
   - {fileID: 21300000, guid: 6b81c7c7912a8aa4095d3599e8521203, type: 3}
+  _glow: {fileID: 0}
 --- !u!61 &1138847090
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5028,3 +5030,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sprite: {fileID: 3826666878884430925}
+--- !u!114 &563247887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3826666878884430920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8f6d3c6e4250e84192f5b34ce9e71bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  glowColor: {r: 0.764151, g: 0.05284029, b: 0, a: 1}
+  glowBrightness: 1
+  outlineWidth: 20
+  alphaThreshold: 0
+  drawOutside: 0
+  enableInstancing: 0
