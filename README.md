@@ -1,5 +1,4 @@
 <!-- ![](https://cdn.discordapp.com/attachments/547089782396682240/549378023103660042/YGr43NJdOc.gif) -->
-![](https://armaniacs.org/School/PgHEymkC7L.gif)
 GP2_Mythology
 =======================
 
