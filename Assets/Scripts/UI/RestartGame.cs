@@ -11,8 +11,9 @@ public class RestartGame : MonoBehaviour
     [SerializeField]
     private GameObject _restartPanel;
 
-
-    private bool _showRestartPanel = false;
+    [SerializeField]
+    private GameObject _PauzePanel;
+    
     private float timer = 0;
     
 
@@ -21,23 +22,36 @@ public class RestartGame : MonoBehaviour
     {
         if (_endboss.GetBool("BossIsFree"))
         {
-            _showRestartPanel = true;
-        }
-
-        if (_showRestartPanel)
-        {
             timer += Time.deltaTime;
 
-            if (timer > 3)
+            if (timer > 2.5f)
             {
                 _restartPanel.SetActive(true);
             }
+
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                _restartPanel.SetActive(false);
+                GoToMainMenu();
+            }
         }
 
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.P))
         {
-            _restartPanel.SetActive(false);
-            SceneManager.LoadScene(0);
+            _PauzePanel.SetActive(true);
+            Time.timeScale = 0;
         }
+    }
+
+    public void GoToMainMenu()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(0);
+    }
+
+    public void ResumeGame()
+    {
+        Time.timeScale = 1;
+        _PauzePanel.SetActive(false);
     }
 }

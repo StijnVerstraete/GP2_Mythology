@@ -88,7 +88,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 360415457135988899}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.31, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 360415457109932308}
@@ -118,7 +118,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 360415457551018809}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 7.64, z: 0}
+  m_LocalPosition: {x: 0, y: 4.86, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 360415457109932308}
@@ -221,7 +221,7 @@ MonoBehaviour:
   Waypoints:
   - {fileID: 360415457551018808}
   - {fileID: 360415457135988898}
-  _speed: 1
+  _speed: 2
 --- !u!61 &7675492894177447602
 BoxCollider2D:
   m_ObjectHideFlags: 0

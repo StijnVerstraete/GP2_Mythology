@@ -27,7 +27,7 @@ public class ParticleManager : MonoBehaviour
         //{
         //    _runParticles.SetActive(false);
         //}
-        if ((_charCTRL.GetComponent<Rigidbody2D>().velocity.x >= 0.001 || _charCTRL.GetComponent<Rigidbody2D>().velocity.x <= -0.001) && _charCTRL.GetComponent<PlayerController>().Ground.IsGrounded)
+        if ((_charCTRL.GetComponent<Rigidbody2D>().velocity.x >= 0.002 || _charCTRL.GetComponent<Rigidbody2D>().velocity.x <= -0.002) && _charCTRL.GetComponent<PlayerController>().Ground.IsGrounded)
         {
             _runParticles.SetActive(true);
         }
