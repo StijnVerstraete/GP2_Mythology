@@ -43,6 +43,9 @@ public class PlayerController : MonoBehaviour
     // Needed for character controller, please do NOT delete this time...
     public bool IsMoving { get => _move != 0; }
 
+    // Added to make sure parallax can move in right direction
+    public string MovementDirection { get => _facingLeft ? "left" : "right"; }
+
     #endregion
 
     #region Methods
