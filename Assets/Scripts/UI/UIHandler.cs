@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,6 +16,13 @@ public class UIHandler : MonoBehaviour
 
     //--- Private
     private PlayerController _player;
+
+    List<string> _correctQuestions = new List<string>();
+    List<string> _correctResponses = new List<string>();
+    List<string[]> _correctAnswersGiven = new List<string[]>();
+    List<string> _validQuestions;
+    List<string[]> _validAnswers;
+    List<string> _validCorrectAnswers;
 
     //bossparticle
     [SerializeField] private GameObject _bossParticle;
@@ -52,6 +61,8 @@ public class UIHandler : MonoBehaviour
     //    "A"
     //};
     int _currentQuestion, _correctAnswers;
+    string[] _allQuestions, _allCorrectAnswers;
+    string[][] _allAnswers;
 
     #endregion
 
@@ -65,21 +76,59 @@ public class UIHandler : MonoBehaviour
     
     private void Awake()
     {
+        // Recover all questions
+        _allQuestions = LikeADatabase._questions;
+        _allAnswers = LikeADatabase._answers;
+        _allCorrectAnswers = LikeADatabase._correctAnswersList;
+
         FillQuestions();
+
         _bossParticle = GameObject.Find("Endboss");
 
-        Debug.Log(_bossParticle);
+        //Debug.Log(_bossParticle);
     }
     
 
     void FillQuestions()
     {
         //TextBox.text = _questions[_currentQuestion];
-        TextBox.text = LikeADatabase._questions[_currentQuestion];
+
+        FilterOutCorrectAnswers();
+
+        // If question out of bounds, reduce it
+        if (_currentQuestion > _validQuestions.Count - 1) _currentQuestion = 0;
+
+        // Apply the question
+        TextBox.text = _validQuestions[_currentQuestion];
+
+        // Recover corresponding answers
+
+        Debug.Log(
+            string.Format(
+                    "Filtered questions: {0} / Selected question: {1} / Recovered answers: {2}",
+                    string.Join(", ", _validQuestions),
+                    _currentQuestion,
+                    string.Join(", ", _validAnswers)
+                )
+            );
+
+        // Apply the answers
         for (int i = 0; i < AnswerTexts.Length; i++)
         {
-            AnswerTexts[i].text = LikeADatabase._answers[_currentQuestion][i];
+            AnswerTexts[i].text = _validAnswers[_currentQuestion][i];
         }
+    }
+
+    void FilterOutCorrectAnswers()
+    {
+        // Filter out all questions
+        _validQuestions = _allQuestions.Where(s => !_correctQuestions.Contains(s)).ToList();
+
+        // Filter out all answers
+        _validAnswers = _allAnswers.Where(a => !_correctAnswersGiven.Contains(a)).ToList();
+
+        // Filter out all correct answers
+        _validCorrectAnswers = _allCorrectAnswers.Where(a => !_correctResponses.Contains(a)).ToList();
     }
 
     public void DisableMe()
@@ -90,35 +139,47 @@ public class UIHandler : MonoBehaviour
     public void SelectOption(string _answer)
     {
         ProcessAnswer(_answer);
-        if (_currentQuestion < 2) HandleQuestions();
+        if (_correctAnswersGiven.Count < 3) FillQuestions();
         else DisableMe();
     }
 
     void ProcessAnswer(string _answer)
     {
-        if (LikeADatabase._correctAnswersList[_currentQuestion] == _answer)
+        Debug.Log(string.Format("Answered: {0}, correct: {1}", _answer, _validCorrectAnswers[_currentQuestion]));
+
+        if (_validCorrectAnswers[_currentQuestion] == _answer)
         {
-            _correctAnswers++;
+            _correctQuestions.Add(_validQuestions[_currentQuestion]);
+            _correctResponses.Add(_validCorrectAnswers[_currentQuestion]);
+            _correctAnswersGiven.Add(_validAnswers[_currentQuestion]);
         }
         else
         {
             _player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
             _player.TakeDamage();
+            if (_player.Health <= 0)
+            {
+                DisableMe();
+                ResetValues();
+            }
+            else _currentQuestion++;
         }
-        Debug.Log(string.Format("Player selected option: {0}, correct answers: {1}", _answer, _correctAnswers));
+        Debug.Log(string.Format("Player selected option: {0}, correct answers: {1}", _answer, _correctAnswersGiven.Count));
 
 
-        if (_correctAnswers == 3)
+        if (_correctAnswersGiven.Count == 3)
         {
             GameObject.Find("Endboss").GetComponent<Animator>().SetBool("BossIsFree", true);
             _bossParticle.SetActive(true);
         }
     }
 
-    void HandleQuestions()
+    void ResetValues()
     {
-        _currentQuestion++;
-        FillQuestions();
+        _currentQuestion = 0;
+        _correctQuestions = new List<string>();
+        _correctResponses = new List<string>();
+        _correctAnswersGiven = new List<string[]>();
     }
 
     #endregion

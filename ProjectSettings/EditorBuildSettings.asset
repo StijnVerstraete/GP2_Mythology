@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 748cad8c507dcfd43997f5991234ebb2
   - enabled: 1
-    path: Assets/Scenes/1_Zeus_v2b.unity
-    guid: 94a38e69bdd6b7147a2dd218f41f7332
+    path: Assets/Scenes/1_Zeus_v3.unity
+    guid: e1b71efacdc0d6c4d8678659fa298b6a
   m_configObjects: {}
