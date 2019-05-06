@@ -157,7 +157,12 @@ public class UIHandler : MonoBehaviour
         {
             _player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
             _player.TakeDamage();
-            _currentQuestion++;
+            if (_player.Health <= 0)
+            {
+                DisableMe();
+                ResetValues();
+            }
+            else _currentQuestion++;
         }
         Debug.Log(string.Format("Player selected option: {0}, correct answers: {1}", _answer, _correctAnswersGiven.Count));
 
@@ -167,6 +172,14 @@ public class UIHandler : MonoBehaviour
             GameObject.Find("Endboss").GetComponent<Animator>().SetBool("BossIsFree", true);
             _bossParticle.SetActive(true);
         }
+    }
+
+    void ResetValues()
+    {
+        _currentQuestion = 0;
+        _correctQuestions = new List<string>();
+        _correctResponses = new List<string>();
+        _correctAnswersGiven = new List<string[]>();
     }
 
     #endregion
