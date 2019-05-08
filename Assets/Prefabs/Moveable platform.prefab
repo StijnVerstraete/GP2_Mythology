@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 11
   m_Sprite: {fileID: 21300000, guid: e55600a8ee75f7a4c8f9f54b4a3f1739, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.7607843}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -97,7 +97,7 @@ MonoBehaviour:
   Waypoints:
   - {fileID: 4820225850882296378}
   - {fileID: 4820225850746470985}
-  _speed: 1
+  _speed: 2
 --- !u!61 &3227865298808865401
 BoxCollider2D:
   m_ObjectHideFlags: 0
