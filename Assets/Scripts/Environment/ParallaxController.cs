@@ -9,6 +9,7 @@ public class ParallaxController : MonoBehaviour
     //--- Private
     float _accelerationRate = .5f;
     PlayerController _charCont;
+    MoveablePlatform _trackedCloud;
 
     //--- Public
     public GameObject[] ParallaxLayers;
@@ -47,7 +48,7 @@ public class ParallaxController : MonoBehaviour
         {
             // We check for the layers that are independent of player movement first, then we check if the player is moving.
             if (ShowFloat[i]) ApplyParallax(i, true);
-            else if (_charCont.IsMoving) ApplyParallax(i, false);
+            else if (_charCont.IsMoving || _charCont.IsStandingOnCloud) ApplyParallax(i, false);
         }
     }
 
@@ -56,11 +57,25 @@ public class ParallaxController : MonoBehaviour
         // Check if one of the layers exiths the boundaries, if so, reset it.
         BackgroundOutOfBoundsCheck(i);
 
+        // Decides what direction parallax layer should move in.
         // Added bit to make sure parallax moves in the players' direction, but ignore if layer independent of player movement.
-        Vector3 _direction = (_ignorePlayerMovement) ? Vector3.right : (_charCont.MovementDirection == "left") ? Vector3.left : Vector3.right;
+        Vector3 _direction = (_ignorePlayerMovement) ? Vector3.right : GetDirection();
 
         // Apply the movement
         ParallaxLayers[i].transform.Translate(_direction * Time.deltaTime * ((ParallaxSpeeds[i] > 0) ? ParallaxSpeeds[i] : _accelerationRate));
+    }
+
+    private Vector3 GetDirection()
+    {
+        // If the player is standing on a cloud, we recover the direction the cloud is moving in to decide the direction.
+        if (_charCont.IsStandingOnCloud)
+        {
+            // Recover the newest cloud player is standing on
+            if (_trackedCloud == null || _trackedCloud != _charCont.transform.parent.gameObject.GetComponent<MoveablePlatform>())
+                _trackedCloud = _charCont.transform.parent.gameObject.GetComponent<MoveablePlatform>();
+            return (_trackedCloud.MovingRight) ? Vector3.right : Vector3.left;
+        }
+        return (_charCont.MovementDirection == "left") ? Vector3.left : Vector3.right;
     }
 
     void BackgroundOutOfBoundsCheck(int i)

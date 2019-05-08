@@ -12,6 +12,11 @@ public class MoveablePlatform : MonoBehaviour
 
     private int _index = 0;
 
+    #region Properties
+
+    public bool MovingRight { get => _index == Waypoints.Length - 1; }
+
+    #endregion
     // Start is called before the first frame update
     void Start()
     {
