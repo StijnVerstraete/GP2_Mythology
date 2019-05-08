@@ -1,9 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class MoveablePlatform : MonoBehaviour
 {
+    #region Fields
+
     [SerializeField]
     private Transform[] Waypoints;
 
@@ -12,15 +12,20 @@ public class MoveablePlatform : MonoBehaviour
 
     private int _index = 0;
 
+    #endregion
+
     #region Properties
 
     public bool MovingRight { get => _index == Waypoints.Length - 1; }
 
     #endregion
+
+    #region Methods
+
     // Start is called before the first frame update
     void Start()
     {
-        this.transform.position = Waypoints[_index].position;
+        transform.position = Waypoints[_index].position;
     }
 
     // Update is called once per frame
@@ -37,7 +42,7 @@ public class MoveablePlatform : MonoBehaviour
             _index %= Waypoints.Length;
         }
 
-        this.transform.position = Vector3.MoveTowards(transform.position, Waypoints[_index].transform.position, _speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, Waypoints[_index].transform.position, _speed * Time.deltaTime);
     }
 
     //private void OnTriggerEnter2D(Collider2D collision)
@@ -55,4 +60,6 @@ public class MoveablePlatform : MonoBehaviour
     //        collision.transform.SetParent(null);
     //    }
     //}
+
+    #endregion
 }

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 
@@ -60,8 +59,6 @@ public class PlayerController : MonoBehaviour
     {
         _rb = GetComponentInChildren<Rigidbody2D>();
         _boxcollider = GetComponentInChildren<BoxCollider2D>();
-        
-        
     }
 
     // Update is called once per frame
