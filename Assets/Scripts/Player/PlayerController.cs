@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
     public int Health { get; set; } = 3;
 
     // Needed for character controller, please do NOT delete this time...
-    public bool IsMoving { get => _move != 0 && _rb.velocity != Vector2.zero; }
+    public bool IsMoving { get => _move != 0 && _rb.velocity != Vector2.zero && Mathf.Abs(_rb.velocity.x) > 2.5f; }
 
     // Added to make sure parallax can move in right direction
     public string MovementDirection { get => _facingLeft ? "left" : "right"; }
