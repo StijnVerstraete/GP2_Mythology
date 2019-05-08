@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 
@@ -43,7 +42,10 @@ public class PlayerController : MonoBehaviour
     public int Health { get; set; } = 3;
 
     // Needed for character controller, please do NOT delete this time...
-    public bool IsMoving { get => _move != 0 && _rb.velocity != Vector2.zero; }
+    public bool IsMoving { get => _move != 0 && _rb.velocity != Vector2.zero && Mathf.Abs(_rb.velocity.x) > 2.5f; }
+
+    // Checks if player is standing on cloud.
+    public bool IsStandingOnCloud { get => transform.parent != null && transform.parent.name == "MovingPlatform"; }
 
     // Added to make sure parallax can move in right direction
     public string MovementDirection { get => _facingLeft ? "left" : "right"; }
@@ -57,8 +59,6 @@ public class PlayerController : MonoBehaviour
     {
         _rb = GetComponentInChildren<Rigidbody2D>();
         _boxcollider = GetComponentInChildren<BoxCollider2D>();
-        
-        
     }
 
     // Update is called once per frame
