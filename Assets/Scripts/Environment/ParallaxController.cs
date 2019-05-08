@@ -45,18 +45,19 @@ public class ParallaxController : MonoBehaviour
     {
         for (int i = 0; i < ParallaxLayers.Length; i++)
         {
-            if (_charCont.IsMoving) ApplyParallax(i);
-            else if (ShowFloat[i]) ApplyParallax(i);
+            // We check for the layers that are independent of player movement first, then we check if the player is moving.
+            if (ShowFloat[i]) ApplyParallax(i, true);
+            else if (_charCont.IsMoving) ApplyParallax(i, false);
         }
     }
 
-    void ApplyParallax(int i)
+    void ApplyParallax(int i, bool _ignorePlayerMovement)
     {
         // Check if one of the layers exiths the boundaries, if so, reset it.
         BackgroundOutOfBoundsCheck(i);
 
-        // Added bit to make sure parallax moves in the players' direction
-        Vector3 _direction = (_charCont.MovementDirection == "left") ? Vector3.left : Vector3.right;
+        // Added bit to make sure parallax moves in the players' direction, but ignore if layer independent of player movement.
+        Vector3 _direction = (_ignorePlayerMovement) ? Vector3.right : (_charCont.MovementDirection == "left") ? Vector3.left : Vector3.right;
 
         // Apply the movement
         ParallaxLayers[i].transform.Translate(_direction * Time.deltaTime * ((ParallaxSpeeds[i] > 0) ? ParallaxSpeeds[i] : _accelerationRate));
