@@ -25,12 +25,12 @@ public class CharAnimation : MonoBehaviour
         }
 
         //set isJumping && isFalling
-        if (_player.GetComponent<Rigidbody2D>().velocity.y > 0 && !isGrounded)
+        if (!isGrounded &&_player.GetComponent<Rigidbody2D>().velocity.y > 0)
         {
             _anim.SetBool("IsJumping", true);
             //Debug.Log("IsJumping");
         }
-        else if (_player.GetComponent<Rigidbody2D>().velocity.y < 0 && !isGrounded)
+        else if (!isGrounded && _player.GetComponent<Rigidbody2D>().velocity.y < 0)
         {
             _anim.SetBool("IsFalling", true);
             _anim.SetBool("IsJumping", false);
