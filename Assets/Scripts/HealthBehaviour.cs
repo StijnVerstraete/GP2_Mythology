@@ -67,9 +67,7 @@ public class HealthBehaviour : MonoBehaviour
         _player.Health = 3;
 
         _player.gameObject.SetActive(false);
-
         
-
         StartCoroutine(RisePlayerFromDeath());
     }
 
@@ -82,7 +80,8 @@ public class HealthBehaviour : MonoBehaviour
             item.sprite = _fullHeart;
         }
 
-        anim.SetBool("IsDeath", true);
+        
         _player.gameObject.SetActive(true);
+        anim.SetBool("IsDeath", true);
     }
 }
