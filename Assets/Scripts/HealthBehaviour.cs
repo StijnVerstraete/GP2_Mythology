@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class HealthBehaviour : MonoBehaviour
@@ -47,13 +48,25 @@ public class HealthBehaviour : MonoBehaviour
 
         if (_liveIndex <= 0)
         {
-            _player.transform.position = _respawnPoint.position;
-            _player.Health = 3;
-
-            foreach (Image item in _lives)
-            {
-                item.sprite = _fullHeart;
-            }
+            Camera.main.SendMessage("FadeOut");
+            StartCoroutine(SetPlayerToStartPosition());
         }
+    }
+
+    private IEnumerator SetPlayerToStartPosition()
+    {
+
+        
+        yield return new WaitForSeconds(1.5f);
+
+        _player.transform.position = _respawnPoint.position;
+        _player.Health = 3;
+
+        foreach (Image item in _lives)
+        {
+            item.sprite = _fullHeart;
+        }
+
+        Camera.main.SendMessage("FadeIn");
     }
 }
