@@ -77,7 +77,6 @@ public class HealthBehaviour : MonoBehaviour
 
         yield return new WaitForSeconds(1.5f);
         
-
         foreach (Image item in _lives)
         {
             item.sprite = _fullHeart;
