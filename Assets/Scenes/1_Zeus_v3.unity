@@ -211,7 +211,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!60 &85723647
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -337,8 +337,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 8f4e8642e2f5d384b9dadb1d13eb99ea, type: 3}
+  m_SortingOrder: 13
+  m_Sprite: {fileID: 21300000, guid: 62f8c3ffb9f96ad418ba67afb5ab561e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -357,7 +357,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 85723646}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.2, y: 4.88, z: 3}
+  m_LocalPosition: {x: -10.2, y: 10.3, z: 3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -575,13 +575,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4914100270452116439, guid: 44aecefa8065fdf4f98db223962d443c,
         type: 3}
+      propertyPath: ParallaxLayers.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914100270452116439, guid: 44aecefa8065fdf4f98db223962d443c,
+        type: 3}
+      propertyPath: ShowFloat.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914100270452116439, guid: 44aecefa8065fdf4f98db223962d443c,
+        type: 3}
+      propertyPath: ParallaxSpeeds.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914100270452116439, guid: 44aecefa8065fdf4f98db223962d443c,
+        type: 3}
       propertyPath: ParallaxLayers.Array.data[0]
       value: 
       objectReference: {fileID: 768096654}
     - target: {fileID: 4914100270452116439, guid: 44aecefa8065fdf4f98db223962d443c,
         type: 3}
       propertyPath: ShowFloat.Array.data[0]
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4914100270452116439, guid: 44aecefa8065fdf4f98db223962d443c,
         type: 3}
@@ -591,7 +606,7 @@ PrefabInstance:
     - target: {fileID: 4914100270452116439, guid: 44aecefa8065fdf4f98db223962d443c,
         type: 3}
       propertyPath: ShowFloat.Array.data[1]
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4914100270452116439, guid: 44aecefa8065fdf4f98db223962d443c,
         type: 3}
@@ -621,17 +636,17 @@ PrefabInstance:
     - target: {fileID: 4914100270452116439, guid: 44aecefa8065fdf4f98db223962d443c,
         type: 3}
       propertyPath: ParallaxSpeeds.Array.data[2]
-      value: 0.5
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 4914100270452116439, guid: 44aecefa8065fdf4f98db223962d443c,
         type: 3}
       propertyPath: ParallaxSpeeds.Array.data[1]
-      value: 0.75
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4914100270452116439, guid: 44aecefa8065fdf4f98db223962d443c,
         type: 3}
       propertyPath: ParallaxSpeeds.Array.data[0]
-      value: 1
+      value: 0.75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44aecefa8065fdf4f98db223962d443c, type: 3}
@@ -1529,8 +1544,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 480569616}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.2, y: -29.6, z: 0}
-  m_LocalScale: {x: 1.8870144, y: 2.164979, z: 1}
+  m_LocalPosition: {x: -8.6, y: -37, z: 0}
+  m_LocalScale: {x: 1.7926637, y: 3.4423168, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 28
@@ -2945,7 +2960,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &768096656
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2983,7 +2998,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: e7cf9bb84428a40418182dbf6c95963d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 62f8c3ffb9f96ad418ba67afb5ab561e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3002,7 +3017,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 768096654}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.2, y: 0, z: 2}
+  m_LocalPosition: {x: -10.2, y: -13.3, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -9842,7 +9857,7 @@ GameObject:
   - component: {fileID: 1719386858}
   - component: {fileID: 1719386859}
   m_Layer: 0
-  m_Name: New_Backdrop2
+  m_Name: Backdrop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9900,7 +9915,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 42cdb91dc2d72e54f98650f48a7c3da4, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.8396226, g: 0.8396226, b: 0.8396226, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
