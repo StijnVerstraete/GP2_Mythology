@@ -57,12 +57,15 @@ public class ParallaxController : MonoBehaviour
         // Check if one of the layers exiths the boundaries, if so, reset it.
         BackgroundOutOfBoundsCheck(i);
 
+        // Recover layer movement speed
+        float _speed = ParallaxSpeeds[i];
+
         // Decides what direction parallax layer should move in.
         // Added bit to make sure parallax moves in the players' direction, but ignore if layer independent of player movement.
-        Vector3 _direction = (_ignorePlayerMovement) ? Vector3.right : GetDirection();
+        Vector3 _direction = (_ignorePlayerMovement) ? (_speed > 0) ? Vector3.right : Vector3.left : GetDirection();
 
         // Apply the movement
-        ParallaxLayers[i].transform.Translate(_direction * Time.deltaTime * ((ParallaxSpeeds[i] > 0) ? ParallaxSpeeds[i] : _accelerationRate));
+        ParallaxLayers[i].transform.Translate(_direction * Time.deltaTime * ((_speed > 0) ? _speed : _accelerationRate));
     }
 
     private Vector3 GetDirection()
