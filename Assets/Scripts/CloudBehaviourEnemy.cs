@@ -126,7 +126,7 @@ public class CloudBehaviourEnemy : MonoBehaviour
         //_lightningParticle.SetActive(true);
         //_hitbox.SetActive(true);
         SetActiveState(true);
-        _soundManager.Play("Lightning",false,0,0.2f);
+        //_soundManager.Play("Lightning",false,0,0.2f);
     }
 
     private void SetActiveState(bool activeState)

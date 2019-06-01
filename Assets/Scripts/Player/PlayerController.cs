@@ -74,6 +74,11 @@ public class PlayerController : MonoBehaviour
     {
         //Debug.Log("Ground " + Ground.IsGrounded);
         _move = Input.GetAxis("Horizontal");
+        if (_move != 0 && !_soundManager.IsPlaying("Run"))
+            _soundManager.Play("Run", true, 0, 1);
+        else if (_move == 0 && _soundManager.IsPlaying("Run"))
+            _soundManager.Stop("Run");
+            
 
         if (_move > 0 && _facingLeft || _move < 0 && !_facingLeft) Flip();
 
