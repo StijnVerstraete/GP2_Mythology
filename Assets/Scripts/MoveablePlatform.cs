@@ -12,6 +12,8 @@ public class MoveablePlatform : MonoBehaviour
 
     private int _index = 0;
 
+    [SerializeField] private SoundManager _soundManager;
+
     #endregion
 
     #region Properties
@@ -43,6 +45,12 @@ public class MoveablePlatform : MonoBehaviour
         }
 
         transform.position = Vector3.MoveTowards(transform.position, Waypoints[_index].transform.position, _speed * Time.deltaTime);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+            _soundManager.Play("Cloud");
     }
 
     //private void OnTriggerEnter2D(Collider2D collision)

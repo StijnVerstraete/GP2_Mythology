@@ -20,7 +20,7 @@ public class CloudBehaviourEnemy : MonoBehaviour
     private Sprite[] _cloudImages;
     [SerializeField]
     private SpriteGlow.SpriteGlowEffect _glow;
-    
+    [SerializeField] private SoundManager _soundManager;
 
     private int _index = 0;
     private SpriteRenderer _renderer;
@@ -126,6 +126,7 @@ public class CloudBehaviourEnemy : MonoBehaviour
         //_lightningParticle.SetActive(true);
         //_hitbox.SetActive(true);
         SetActiveState(true);
+        _soundManager.Play("Lightning",false,0,0.2f);
     }
 
     private void SetActiveState(bool activeState)

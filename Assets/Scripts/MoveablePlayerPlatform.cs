@@ -7,10 +7,8 @@ public class MoveablePlayerPlatform : MonoBehaviour
     private bool _moving;
 
     private bool test;
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
+
+    [SerializeField] private SoundManager _soundManager;
 
     // Update is called once per frame
     void Update()
@@ -29,6 +27,7 @@ public class MoveablePlayerPlatform : MonoBehaviour
         {
             _moving = true;
             collision.transform.SetParent(this.transform);
+            _soundManager.Play("Cloud", false, 0, 1);
         }
 
         if (collision.gameObject.tag == "stopPlatform")
