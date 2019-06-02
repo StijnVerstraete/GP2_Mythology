@@ -54,7 +54,7 @@ public static class CinematicMode
         _borders = _activeCamera.GetComponent<CameraController>().CameraBorders;
         _topPos = _borders[0].transform.localPosition;
         _botPos = _borders[1].transform.localPosition;
-        Debug.Log(string.Format("{0}, {1}", _topPos, _botPos));
+       // Debug.Log(string.Format("{0}, {1}", _topPos, _botPos));
         _isInitiated = true;
     }
 

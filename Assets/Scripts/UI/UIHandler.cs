@@ -107,14 +107,14 @@ public class UIHandler : MonoBehaviour
 
         // Recover corresponding answers
 
-        Debug.Log(
-            string.Format(
-                    "Filtered questions: {0} / Selected question: {1} / Recovered answers: {2}",
-                    string.Join(", ", _validQuestions),
-                    _currentQuestion,
-                    string.Join(", ", _validAnswers)
-                )
-            );
+        //Debug.Log(
+        //    string.Format(
+        //            "Filtered questions: {0} / Selected question: {1} / Recovered answers: {2}",
+        //            string.Join(", ", _validQuestions),
+        //            _currentQuestion,
+        //            string.Join(", ", _validAnswers)
+        //        )
+        //    );
 
         // Apply the answers
         for (int i = 0; i < AnswerTexts.Length; i++)
@@ -149,7 +149,7 @@ public class UIHandler : MonoBehaviour
 
     void ProcessAnswer(string _answer)
     {
-        Debug.Log(string.Format("Answered: {0}, correct: {1}", _answer, _validCorrectAnswers[_currentQuestion]));
+        //Debug.Log(string.Format("Answered: {0}, correct: {1}", _answer, _validCorrectAnswers[_currentQuestion]));
 
         if (_validCorrectAnswers[_currentQuestion] == _answer)
         {
@@ -168,7 +168,7 @@ public class UIHandler : MonoBehaviour
             }
             else _currentQuestion++;
         }
-        Debug.Log(string.Format("Player selected option: {0}, correct answers: {1}", _answer, _correctAnswersGiven.Count));
+        //Debug.Log(string.Format("Player selected option: {0}, correct answers: {1}", _answer, _correctAnswersGiven.Count));
 
 
         if (_correctAnswersGiven.Count == 3)
