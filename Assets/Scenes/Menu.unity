@@ -2499,6 +2499,7 @@ MonoBehaviour:
   MusicButton: {fileID: 6125298797284991417}
   MusicOnSprite: {fileID: 21300000, guid: d974313b8da954849b9885b474b3a9af, type: 3}
   MusicOffSprite: {fileID: 21300000, guid: 690f647d8963f344b9a3e2e573b24d45, type: 3}
+  _audio: {fileID: 2145756630}
 --- !u!222 &1665476058
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2956,6 +2957,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &2145756630 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3874070772908685013, guid: cc24d358e67dcb549a437f0a2f929280,
+    type: 3}
+  m_PrefabInstance: {fileID: 3874070773415850673}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &146812744343040215
 MonoBehaviour:
   m_ObjectHideFlags: 0
